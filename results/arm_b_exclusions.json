@@ -1,0 +1,7 @@
+{
+ "n_total": 195,
+ "n_excluded": 0,
+ "threshold_log_units": 0.1,
+ "reason": "Description text contains a concentration value (with unit pM/nM/uM/mM) within 0.1 log units of p_a or p_b. These items may give the model indirect access to a true IC50 value.",
+ "excluded_items": []
+}
