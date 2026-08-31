@@ -112,20 +112,33 @@ Respond with exactly this JSON and nothing else:
 {{"value_nM": <float or null>, "known": true|false, "confidence": <float 0-1>}}"""
 
 
-FORBIDDEN_KEYS = ("p_a", "p_b", "delta", "label")
+# "label" is intentionally excluded: "COMMENSURABLE" / "NOT_COMMENSURABLE"
+# appear in every prompt as the valid JSON response values in SCHEMA. They are
+# the task vocabulary, not leaked ground truth.
+FORBIDDEN_FLOAT_KEYS = ("p_a", "p_b", "delta")
+
+# SCHEMA contains "within 0.3 log units" and "more than 1.0 log units".
+# Delta values close to those thresholds round to "0.3" or "1.0" at 1dp,
+# producing false positives. We skip 1dp for delta only; p_a / p_b values
+# (typically 4–11 pchembl) don't coincide with any fixed prompt text.
+_DELTA_ROUNDINGS = (2, 3, 4)
+_PA_PB_ROUNDINGS = (1, 2, 3, 4)
 
 
 def assert_clean(prompt, item):
-    """Raise if any label-bearing value appears in the prompt."""
-    for k in FORBIDDEN_KEYS:
+    """Raise if any numeric label-bearing value appears in the prompt."""
+    for k in ("p_a", "p_b"):
         v = item.get(k)
         if v is None:
             continue
-        if isinstance(v, float):
-            # catch the value at several roundings
-            for s in {f"{v:.1f}", f"{v:.2f}", f"{v:.3f}", f"{v:.4f}", str(v)}:
-                if s in prompt:
-                    raise ValueError(f"LEAK: {k}={v} appears in prompt for {item['id']}")
-        elif str(v) in prompt:
-            raise ValueError(f"LEAK: {k}={v} appears in prompt for {item['id']}")
+        for s in {str(v)} | {f"{v:.{n}f}" for n in _PA_PB_ROUNDINGS}:
+            if s in prompt:
+                raise ValueError(
+                    f"LEAK: {k}={v} appears in prompt for {item['id']}")
+    v = item.get("delta")
+    if v is not None:
+        for s in {str(v)} | {f"{v:.{n}f}" for n in _DELTA_ROUNDINGS}:
+            if s in prompt:
+                raise ValueError(
+                    f"LEAK: delta={v} appears in prompt for {item['id']}")
     return prompt

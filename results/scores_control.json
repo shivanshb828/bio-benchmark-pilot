@@ -1,0 +1,15 @@
+[
+ {
+  "arm": "control",
+  "model": "claude",
+  "n": 195,
+  "balanced_accuracy": 0.02,
+  "ci": [
+   0.004807692307692308,
+   0.0425531914893617
+  ],
+  "false_merge": 0.05263157894736842,
+  "false_split": 0.0,
+  "abstention": 0.9538461538461539
+ }
+]
