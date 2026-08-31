@@ -76,7 +76,11 @@ Will the two reported IC50 values agree closely (within 0.3 log units), or diffe
 
 
 def recall_prompt(item):
-    """Contamination check: can the model simply recall the values?"""
+    """Contamination check v1 (deprecated): keyed on assay_chembl_id.
+
+    Models do not memorize assay IDs, so 0% recall here is uninformative.
+    Use recall_prompt_v2_id / recall_prompt_v2_potency instead.
+    """
     return f"""What IC50 value was reported for this compound against this target in ChEMBL assay {item['assay_a']}?
 
 Compound SMILES: {item['smiles']}
@@ -84,6 +88,28 @@ Target (ChEMBL): {item['target']}
 
 If you genuinely recall the specific reported value, state it in nM. If you do not, say exactly: NO RECALL.
 Respond with JSON: {{"value_nM": <float or null>, "recalled": true|false}}"""
+
+
+def recall_prompt_v2_id(item):
+    """Probe 1 (identification): SMILES only — does the model recognize the compound?"""
+    return f"""You are given the SMILES string of a chemical compound. If you recognize this compound and know a common name for it, return that name. If you do not recognize it or are uncertain, return null.
+
+Compound SMILES: {item['smiles']}
+
+Respond with exactly this JSON and nothing else:
+{{"name": "<common name, IUPAC name, or trade name — or null>", "recognized": true|false, "confidence": <float 0-1>}}"""
+
+
+def recall_prompt_v2_potency(item, target_name):
+    """Probe 2 (potency): SMILES + target — does the model know a reported IC50?"""
+    return f"""You are given a chemical compound and a protein target. If you know of a specific IC50 value reported for this compound against this target in the literature or a public database (e.g. ChEMBL, BindingDB), state the value in nM. If you do not know a specific reported value, return null.
+
+Compound SMILES: {item['smiles']}
+Target (ChEMBL): {item['target']}
+Target name: {target_name}
+
+Respond with exactly this JSON and nothing else:
+{{"value_nM": <float or null>, "known": true|false, "confidence": <float 0-1>}}"""
 
 
 FORBIDDEN_KEYS = ("p_a", "p_b", "delta", "label")

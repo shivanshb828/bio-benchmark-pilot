@@ -8,6 +8,7 @@ False merges poison training data. False splits only cost sample size.
 
 Run:  python -m src.score --arm control
       python -m src.score --arm control --model claude
+      python -m src.score --arm control --stratify-by-contamination
 """
 import argparse, json, random, statistics
 from collections import Counter, defaultdict
@@ -46,7 +47,49 @@ def boot(rows, fn, n=2000):
     return vals[int(.025 * len(vals))], vals[int(.975 * len(vals))]
 
 
-def report(arm, model):
+def _print_tier(label, rows):
+    if not rows:
+        print(f"  n=0")
+        return
+    n = len(rows)
+    pos = [r for r in rows if r["label"] == "NOT_COMMENSURABLE"]
+    neg = [r for r in rows if r["label"] == "COMMENSURABLE"]
+    fm = sum(r["call"] == "COMMENSURABLE" for r in pos) / len(pos) if pos else float("nan")
+    fs = sum(r["call"] == "NOT_COMMENSURABLE" for r in neg) / len(neg) if neg else float("nan")
+    ba = bacc(rows)
+    print(f"  {label:<10}  n={n:>4}   bacc={ba:.3f}   false_merge={fm:.3f}   false_split={fs:.3f}")
+
+
+def _stratify_report(rows, contamination):
+    """Print headline metrics broken out by contamination risk tier."""
+    risk_map = {r["id"]: r["contamination_risk"] for r in contamination["items"]}
+    tiers = {"low": [], "medium": [], "high": []}
+    unmatched = []
+    for r in rows:
+        tier = risk_map.get(r["id"])
+        if tier in tiers:
+            tiers[tier].append(r)
+        else:
+            unmatched.append(r)
+
+    print("\n--- Stratified by contamination risk (headline result) ---")
+    print(f"  {'tier':<10}  {'n':>4}   {'bacc':>8}   {'false_merge':>12}   {'false_split':>12}")
+    for tier in ("low", "medium", "high"):
+        _print_tier(tier, tiers[tier])
+    if unmatched:
+        print(f"  (unmatched: {len(unmatched)} items not in contamination.json)")
+
+    high = tiers["high"]
+    low_med = tiers["low"] + tiers["medium"]
+    if high and low_med:
+        ba_h = bacc(high)
+        ba_lm = bacc(low_med)
+        if abs(ba_h - ba_lm) > 0.05:
+            print(f"\n  NOTE: bacc differs by {abs(ba_h - ba_lm):.3f} between high-risk and "
+                  f"low/medium-risk items. Report both; do not pool.")
+
+
+def report(arm, model, stratify_contamination=False):
     sample = json.loads((RESULTS / "pilot_sample_v0.json").read_text())
     labels = {i["id"]: i for i in sample["items"]}
 
@@ -115,6 +158,16 @@ def report(arm, model):
             acc = sum(r["call"] == r["label"] for r in sub) / len(sub)
             print(f"  [{lo_:.1f},{hi_:.1f})  n={len(sub):>4}  acc={acc:.2f}")
 
+    if stratify_contamination:
+        cont_path = RESULTS / "contamination.json"
+        if not cont_path.exists():
+            print("\nWARNING: --stratify-by-contamination requested but "
+                  "results/contamination.json not found. "
+                  "Run: python -m src.score_recall_v2")
+        else:
+            contamination = json.loads(cont_path.read_text())
+            _stratify_report(rows, contamination)
+
     return {"arm": arm, "model": model, "n": n, "balanced_accuracy": ba,
             "ci": [lo, hi], "false_merge": false_merge,
             "false_split": false_split, "abstention": abstain}
@@ -124,10 +177,15 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--arm", required=True)
     ap.add_argument("--model", default=None)
+    ap.add_argument("--stratify-by-contamination", action="store_true",
+                    help="Break metrics out by contamination risk tier "
+                         "(requires results/contamination.json)")
     a = ap.parse_args()
 
     models = [a.model] if a.model else list(MODELS)
-    out = [r for m in models if (r := report(a.arm, m))]
+    out = [r for m in models
+           if (r := report(a.arm, m,
+                           stratify_contamination=a.stratify_by_contamination))]
 
     if a.arm == "control" and out:
         print("\n" + "=" * 62)

@@ -1,0 +1,1767 @@
+{
+ "model": "claude",
+ "n": 195,
+ "risk_counts": {
+  "low": 108,
+  "medium": 65,
+  "high": 22
+ },
+ "high_pct": 11.28,
+ "items": [
+  {
+   "id": "p000",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": true,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p001",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "triptolide acetate",
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p002",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "niraparib",
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p003",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p004",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "selegiline",
+   "potency_claimed": true,
+   "potency_within_0.5_log": true,
+   "contamination_risk": "high"
+  },
+  {
+   "id": "p005",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p006",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p007",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "duloxetine",
+   "potency_claimed": true,
+   "potency_within_0.5_log": true,
+   "contamination_risk": "high"
+  },
+  {
+   "id": "p008",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p009",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "bupropion",
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p010",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p011",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "veliparib",
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p012",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "duloxetine",
+   "potency_claimed": true,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p013",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "atomoxetine",
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p014",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p015",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "AZD3759",
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p016",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p017",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "rasagiline",
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p018",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": true,
+   "potency_within_0.5_log": true,
+   "contamination_risk": "high"
+  },
+  {
+   "id": "p019",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "SB 203580",
+   "potency_claimed": true,
+   "potency_within_0.5_log": true,
+   "contamination_risk": "high"
+  },
+  {
+   "id": "p020",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p021",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p022",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "vemurafenib",
+   "potency_claimed": true,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p023",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p024",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p025",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p026",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p027",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "suberoylanilide hydroxamic acid",
+   "potency_claimed": true,
+   "potency_within_0.5_log": true,
+   "contamination_risk": "high"
+  },
+  {
+   "id": "p028",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "Gefitinib",
+   "potency_claimed": true,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p029",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "ibrutinib",
+   "potency_claimed": true,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p030",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p031",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p032",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p033",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p034",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "tofacitinib",
+   "potency_claimed": true,
+   "potency_within_0.5_log": true,
+   "contamination_risk": "high"
+  },
+  {
+   "id": "p035",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": true,
+   "potency_within_0.5_log": true,
+   "contamination_risk": "high"
+  },
+  {
+   "id": "p036",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "vemurafenib",
+   "potency_claimed": true,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p037",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p038",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "tetracaine",
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p039",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p040",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "donepezil",
+   "potency_claimed": true,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p041",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "AZD3759",
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p042",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "safinamide",
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p043",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p044",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "darunavir",
+   "potency_claimed": true,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p045",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p046",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "rivastigmine",
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p047",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "BMS-777607",
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p048",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p049",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "CAL-101",
+   "potency_claimed": true,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p050",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "neratinib",
+   "potency_claimed": true,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p051",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p052",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": true,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p053",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "galanthamine hydrobromide",
+   "potency_claimed": true,
+   "potency_within_0.5_log": true,
+   "contamination_risk": "high"
+  },
+  {
+   "id": "p054",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "AZD3759",
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p055",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "Ritlecitinib",
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p056",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p057",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "donepezil hydrochloride",
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p058",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p059",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "Nisoxetine",
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p060",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "suberoylanilide hydroxamic acid",
+   "potency_claimed": true,
+   "potency_within_0.5_log": true,
+   "contamination_risk": "high"
+  },
+  {
+   "id": "p061",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p062",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "erlotinib",
+   "potency_claimed": true,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p063",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p064",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p065",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "Etravirine",
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p066",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "Bupropion",
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p067",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p068",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "dihydromorphine",
+   "potency_claimed": true,
+   "potency_within_0.5_log": true,
+   "contamination_risk": "high"
+  },
+  {
+   "id": "p069",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "AZD3759",
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p070",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p071",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p072",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "tofacitinib",
+   "potency_claimed": true,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p073",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p074",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p075",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p076",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p077",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p078",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "SB 203580",
+   "potency_claimed": true,
+   "potency_within_0.5_log": true,
+   "contamination_risk": "high"
+  },
+  {
+   "id": "p079",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "Efavirenz",
+   "potency_claimed": true,
+   "potency_within_0.5_log": true,
+   "contamination_risk": "high"
+  },
+  {
+   "id": "p080",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p081",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "isatin",
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p082",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "1-(1-adamantyl)-3-cyclohexylurea",
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p083",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p084",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p085",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p086",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p087",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p088",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p089",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p090",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p091",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "1-phenyl-1H-tetrazole",
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p092",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "trichostatin A",
+   "potency_claimed": true,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p093",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p094",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "Fluoxetine",
+   "potency_claimed": true,
+   "potency_within_0.5_log": true,
+   "contamination_risk": "high"
+  },
+  {
+   "id": "p095",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p096",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p097",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p098",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "Sitagliptin",
+   "potency_claimed": true,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p099",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "7-chlorotacrine",
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p100",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "cloparamine",
+   "potency_claimed": true,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p101",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "atomoxetine",
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p102",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "saquinavir",
+   "potency_claimed": true,
+   "potency_within_0.5_log": true,
+   "contamination_risk": "high"
+  },
+  {
+   "id": "p103",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p104",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p105",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "idelalisib",
+   "potency_claimed": true,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p106",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "veliparib",
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p107",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "vildagliptin",
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p108",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": true,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p109",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "tacrine",
+   "potency_claimed": true,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p110",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p111",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": true,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p112",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p113",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "lapatinib",
+   "potency_claimed": true,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p114",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "17beta-estradiol",
+   "potency_claimed": true,
+   "potency_within_0.5_log": true,
+   "contamination_risk": "high"
+  },
+  {
+   "id": "p115",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p116",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p117",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p118",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p119",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p120",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p121",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p122",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p123",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p124",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "saquinavir",
+   "potency_claimed": true,
+   "potency_within_0.5_log": true,
+   "contamination_risk": "high"
+  },
+  {
+   "id": "p125",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p126",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "erlotinib",
+   "potency_claimed": true,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p127",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p128",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p129",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "fostamatinib",
+   "potency_claimed": true,
+   "potency_within_0.5_log": true,
+   "contamination_risk": "high"
+  },
+  {
+   "id": "p130",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "tacrine",
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p131",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "TAK-659",
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p132",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p133",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "olaparib",
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p134",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "rivastigmine",
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p135",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p136",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p137",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p138",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "saquinavir",
+   "potency_claimed": true,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p139",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p140",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": true,
+   "potency_within_0.5_log": true,
+   "contamination_risk": "high"
+  },
+  {
+   "id": "p141",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p142",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "clorgiline",
+   "potency_claimed": true,
+   "potency_within_0.5_log": true,
+   "contamination_risk": "high"
+  },
+  {
+   "id": "p143",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": true,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p144",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p145",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p146",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p147",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p148",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "tacrine",
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p149",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "pargyline",
+   "potency_claimed": true,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p150",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p151",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "Efavirenz",
+   "potency_claimed": true,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p152",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p153",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "sorafenib",
+   "potency_claimed": true,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p154",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p155",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p156",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p157",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "donepezil",
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p158",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "panobinostat",
+   "potency_claimed": true,
+   "potency_within_0.5_log": true,
+   "contamination_risk": "high"
+  },
+  {
+   "id": "p159",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p160",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "rasagiline",
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p161",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p162",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "dihydromorphine",
+   "potency_claimed": true,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p163",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p164",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p165",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p166",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p167",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p168",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "AZD3759",
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p169",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p170",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "sorafenib",
+   "potency_claimed": true,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p171",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p172",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "Niraparib",
+   "potency_claimed": true,
+   "potency_within_0.5_log": true,
+   "contamination_risk": "high"
+  },
+  {
+   "id": "p173",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "Rosmarinic acid",
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p174",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p175",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p176",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "selegiline",
+   "potency_claimed": true,
+   "potency_within_0.5_log": true,
+   "contamination_risk": "high"
+  },
+  {
+   "id": "p177",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "Gefitinib",
+   "potency_claimed": true,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p178",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p179",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "atomoxetine",
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p180",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p181",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p182",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p183",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p184",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "iproniazid",
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p185",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p186",
+   "label": "COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "Bupropion",
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p187",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p188",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "GBR 12909",
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p189",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p190",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p191",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p192",
+   "label": "COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  },
+  {
+   "id": "p193",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": true,
+   "named_compound": "tubastatin A",
+   "potency_claimed": true,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "medium"
+  },
+  {
+   "id": "p194",
+   "label": "NOT_COMMENSURABLE",
+   "recognized": false,
+   "named_compound": null,
+   "potency_claimed": false,
+   "potency_within_0.5_log": false,
+   "contamination_risk": "low"
+  }
+ ]
+}
