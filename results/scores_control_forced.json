@@ -1,0 +1,21 @@
+[
+ {
+  "arm": "control_forced",
+  "model": "claude",
+  "n": 195,
+  "balanced_accuracy": 0.4715789473684211,
+  "ci": [
+   0.40591397849462363,
+   0.5357745884339384
+  ],
+  "balanced_accuracy_committed": 0.4715789473684211,
+  "ci_committed": [
+   0.40591397849462363,
+   0.5357745884339384
+  ],
+  "n_committed": 195,
+  "false_merge": 0.7368421052631579,
+  "false_split": 0.32,
+  "abstention": 0.0
+ }
+]

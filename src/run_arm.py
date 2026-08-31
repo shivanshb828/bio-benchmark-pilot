@@ -13,8 +13,8 @@ import argparse, json, os, sys, time
 import urllib.request, urllib.error
 
 from .config import RESULTS, RAW, MODELS
-from .prompts import (SYSTEM, control_prompt, metadata_prompt,
-                      recall_prompt, assert_clean)
+from .prompts import (SYSTEM, control_prompt, control_prompt_forced,
+                      metadata_prompt, recall_prompt, assert_clean)
 
 
 def call_anthropic(model, system, user):
@@ -67,7 +67,8 @@ def parse(text):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--arm", required=True, choices=["control", "metadata", "recall"])
+    ap.add_argument("--arm", required=True,
+                    choices=["control", "control_forced", "metadata", "recall"])
     ap.add_argument("--model", required=True, choices=list(MODELS))
     ap.add_argument("--limit", type=int, default=None)
     ap.add_argument("--retries", type=int, default=3)
@@ -89,9 +90,10 @@ def main():
     outdir = RAW / a.arm / a.model
     outdir.mkdir(parents=True, exist_ok=True)
 
-    builders = {"control": lambda it: control_prompt(it),
-                "metadata": lambda it: metadata_prompt(it, meta),
-                "recall": lambda it: recall_prompt(it)}
+    builders = {"control":        lambda it: control_prompt(it),
+                "control_forced": lambda it: control_prompt_forced(it),
+                "metadata":       lambda it: metadata_prompt(it, meta),
+                "recall":         lambda it: recall_prompt(it)}
 
     done = 0
     for n, it in enumerate(items, 1):

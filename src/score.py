@@ -35,6 +35,12 @@ def bacc(rows):
     return statistics.mean(c / n for c, n in per.values() if n)
 
 
+def bacc_committed(rows):
+    """Balanced accuracy on committed rows only (abstentions excluded)."""
+    committed = [r for r in rows if r["call"] != "INSUFFICIENT_INFO"]
+    return bacc(committed), len(committed)
+
+
 def boot(rows, fn, n=2000):
     rng = random.Random(SEED)
     vals = []
@@ -141,12 +147,40 @@ def report(arm, model, stratify_contamination=False):
     ba = bacc(rows)
     lo, hi = boot(rows, bacc)
 
+    ba_com, n_committed = bacc_committed(rows)
+    lo_com, hi_com = boot([r for r in rows if r["call"] != "INSUFFICIENT_INFO"],
+                          bacc) if n_committed >= 2 else (float("nan"), float("nan"))
+
     print(f"\n=== {arm} / {model} ===")
     print(f"n scored            : {n}  ({bad} unparsable)")
-    print(f"balanced accuracy   : {ba:.3f}   95% CI [{lo:.3f}, {hi:.3f}]   baseline 0.500")
-    print(f"FALSE MERGE rate    : {false_merge:.3f}   <- the one that matters")
-    print(f"false split rate    : {false_split:.3f}")
-    print(f"abstention rate     : {abstain:.3f}")
+    print(f"abstention rate     : {abstain:.3f}  ({n - n_committed} abstained, "
+          f"{n_committed} committed)")
+    print()
+    print(f"  (a) abstentions scored as WRONG  [comparable to forced-commit baselines]")
+    print(f"      balanced accuracy : {ba:.3f}   95% CI [{lo:.3f}, {hi:.3f}]")
+    print(f"      FALSE MERGE rate  : {false_merge:.3f}   <- the one that matters")
+    print(f"      false split rate  : {false_split:.3f}")
+    if abstain > 0.05:
+        print(f"      NOTE: {abstain:.1%} abstention makes this number misleading — "
+              f"see (b)")
+    print()
+    if n_committed:
+        pos_com = [r for r in rows
+                   if r["label"] == "NOT_COMMENSURABLE"
+                   and r["call"] != "INSUFFICIENT_INFO"]
+        neg_com = [r for r in rows
+                   if r["label"] == "COMMENSURABLE"
+                   and r["call"] != "INSUFFICIENT_INFO"]
+        fm_com = (sum(r["call"] == "COMMENSURABLE" for r in pos_com) / len(pos_com)
+                  if pos_com else float("nan"))
+        fs_com = (sum(r["call"] == "NOT_COMMENSURABLE" for r in neg_com) / len(neg_com)
+                  if neg_com else float("nan"))
+        print(f"  (b) abstentions EXCLUDED  [n_committed={n_committed}]")
+        print(f"      balanced accuracy : {ba_com:.3f}   95% CI [{lo_com:.3f}, {hi_com:.3f}]")
+        print(f"      FALSE MERGE rate  : {fm_com:.3f}")
+        print(f"      false split rate  : {fs_com:.3f}")
+    else:
+        print(f"  (b) no committed responses — cannot compute excluded-abstention metrics")
 
     # calibration
     buckets = defaultdict(lambda: [0, 0])
@@ -189,9 +223,12 @@ def report(arm, model, stratify_contamination=False):
             contamination = json.loads(cont_path.read_text())
             _stratify_report(rows, contamination)
 
-    return {"arm": arm, "model": model, "n": n, "balanced_accuracy": ba,
-            "ci": [lo, hi], "false_merge": false_merge,
-            "false_split": false_split, "abstention": abstain}
+    return {"arm": arm, "model": model, "n": n,
+            "balanced_accuracy": ba, "ci": [lo, hi],
+            "balanced_accuracy_committed": ba_com, "ci_committed": [lo_com, hi_com],
+            "n_committed": n_committed,
+            "false_merge": false_merge, "false_split": false_split,
+            "abstention": abstain}
 
 
 def main():
@@ -208,11 +245,20 @@ def main():
            if (r := report(a.arm, m,
                            stratify_contamination=a.stratify_by_contamination))]
 
-    if a.arm == "control" and out:
+    if a.arm in ("control", "control_forced") and out:
         print("\n" + "=" * 62)
-        print("PREREGISTERED DECISION RULE (control arm)")
-        best = max(r["balanced_accuracy"] for r in out)
-        print(f"  best balanced accuracy = {best:.3f}")
+        print(f"PREREGISTERED DECISION RULE ({a.arm} arm)")
+        # Use committed-only bacc when abstention > 5%; use overall otherwise
+        best_committed = max(r["balanced_accuracy_committed"] for r in out
+                             if r.get("balanced_accuracy_committed") == r.get("balanced_accuracy_committed"))
+        best_overall = max(r["balanced_accuracy"] for r in out)
+        any_high_abstain = any(r["abstention"] > 0.05 for r in out)
+        if any_high_abstain:
+            print(f"  Using committed-only bacc (abstention rate > 5%)")
+            best = best_committed
+        else:
+            best = best_overall
+        print(f"  best balanced accuracy (committed) = {best:.3f}")
         if best > 0.65:
             print("  >0.65 -> the task is largely solvable from structure and")
             print("  potency priors alone. The metadata arm would be CONFOUNDED.")
