@@ -1,0 +1,2 @@
+# stdlib only by design: no pandas, no sdk, nothing to break in six months.
+# python >= 3.10
