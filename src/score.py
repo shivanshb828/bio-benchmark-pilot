@@ -47,9 +47,16 @@ def boot(rows, fn, n=2000):
     return vals[int(.025 * len(vals))], vals[int(.975 * len(vals))]
 
 
+FAMILIARITY_TIERS = (
+    "unrecognized",
+    "recognized_only",
+    "recognized_with_matching_potency",
+)
+
+
 def _print_tier(label, rows):
     if not rows:
-        print(f"  n=0")
+        print(f"  {label:<42}  n=0")
         return
     n = len(rows)
     pos = [r for r in rows if r["label"] == "NOT_COMMENSURABLE"]
@@ -57,36 +64,50 @@ def _print_tier(label, rows):
     fm = sum(r["call"] == "COMMENSURABLE" for r in pos) / len(pos) if pos else float("nan")
     fs = sum(r["call"] == "NOT_COMMENSURABLE" for r in neg) / len(neg) if neg else float("nan")
     ba = bacc(rows)
-    print(f"  {label:<10}  n={n:>4}   bacc={ba:.3f}   false_merge={fm:.3f}   false_split={fs:.3f}")
+    print(f"  {label:<42}  n={n:>4}   bacc={ba:.3f}   fm={fm:.3f}   fs={fs:.3f}")
 
 
 def _stratify_report(rows, contamination):
-    """Print headline metrics broken out by contamination risk tier."""
-    risk_map = {r["id"]: r["contamination_risk"] for r in contamination["items"]}
-    tiers = {"low": [], "medium": [], "high": []}
+    """Does compound familiarity help the model solve the task?
+
+    This is NOT a contamination control: canonical-IC50 recall cannot recover
+    the assay-pair divergence label.  Structure-only baselines reach ~0.578
+    CV balanced accuracy, so familiarity is not expected to buy much.
+    """
+    tier_key = "familiarity_tier"
+    tier_map = {r["id"]: r.get(tier_key, "unrecognized")
+                for r in contamination["items"]}
+    tiers = {t: [] for t in FAMILIARITY_TIERS}
     unmatched = []
     for r in rows:
-        tier = risk_map.get(r["id"])
+        tier = tier_map.get(r["id"])
         if tier in tiers:
             tiers[tier].append(r)
         else:
             unmatched.append(r)
 
-    print("\n--- Stratified by contamination risk (headline result) ---")
-    print(f"  {'tier':<10}  {'n':>4}   {'bacc':>8}   {'false_merge':>12}   {'false_split':>12}")
-    for tier in ("low", "medium", "high"):
+    print("\n--- Does compound familiarity help? (headline result) ---")
+    print("  (Not a contamination gate: canonical-IC50 recall ≠ assay-divergence recall)")
+    print("  (Structure-only baseline ~0.578 bacc; familiarity not expected to buy much)")
+    print()
+    print(f"  {'tier':<42}  {'n':>4}   {'bacc':>6}   {'fm':>6}   {'fs':>6}")
+    for tier in FAMILIARITY_TIERS:
         _print_tier(tier, tiers[tier])
     if unmatched:
         print(f"  (unmatched: {len(unmatched)} items not in contamination.json)")
 
-    high = tiers["high"]
-    low_med = tiers["low"] + tiers["medium"]
-    if high and low_med:
-        ba_h = bacc(high)
-        ba_lm = bacc(low_med)
-        if abs(ba_h - ba_lm) > 0.05:
-            print(f"\n  NOTE: bacc differs by {abs(ba_h - ba_lm):.3f} between high-risk and "
-                  f"low/medium-risk items. Report both; do not pool.")
+    fam = tiers["recognized_with_matching_potency"]
+    unfam = tiers["unrecognized"] + tiers["recognized_only"]
+    if fam and unfam:
+        ba_f = bacc(fam)
+        ba_u = bacc(unfam)
+        delta = ba_f - ba_u
+        direction = "higher" if delta > 0 else "lower"
+        print(f"\n  Familiar compounds: bacc={ba_f:.3f}   Unfamiliar: bacc={ba_u:.3f}  "
+              f"(Δ={delta:+.3f}, {direction})")
+        if abs(delta) > 0.05:
+            print(f"  Familiarity associates with {direction} accuracy — "
+                  f"report separately, do not pool.")
 
 
 def report(arm, model, stratify_contamination=False):

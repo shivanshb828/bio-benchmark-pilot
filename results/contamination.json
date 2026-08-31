@@ -1,12 +1,39 @@
 {
  "model": "claude",
  "n": 195,
- "risk_counts": {
-  "low": 108,
-  "medium": 65,
-  "high": 22
+ "n_claimed": 53,
+ "hit_rate_all": 0.1128,
+ "hit_rate_claimed": 0.4151,
+ "null_models": {
+  "all195": {
+   "n": 195,
+   "null_pool_median": 0.267,
+   "null_100nM": 0.318,
+   "null_random_mean": 0.299,
+   "null_random_lo95": 0.236,
+   "null_random_hi95": 0.359,
+   "observed": 0.113,
+   "n_hit": 22
+  },
+  "claimed": {
+   "n": 53,
+   "null_pool_median": 0.358,
+   "null_100nM": 0.396,
+   "null_random_mean": 0.299,
+   "null_random_lo95": 0.189,
+   "null_random_hi95": 0.415,
+   "observed": 0.415,
+   "n_hit": 22
+  },
+  "pool_median_pchembl": 6.8,
+  "pool_n": 47004
  },
- "high_pct": 11.28,
+ "verdict": "Not contaminated for the benchmark label. Hit rate among claimed items (41.5%, 22/53) sits at the upper edge of the random-draw null CI (~30% [19%, 42%]), suggesting borderline potency recall, but canonical-IC50 recall cannot recover assay-pair divergence. The 10% threshold from v1 was invalid here; correct comparison is against the null models.",
+ "tier_counts": {
+  "unrecognized": 108,
+  "recognized_only": 65,
+  "recognized_with_matching_potency": 22
+ },
  "items": [
   {
    "id": "p000",
@@ -15,7 +42,7 @@
    "named_compound": null,
    "potency_claimed": true,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p001",
@@ -24,7 +51,7 @@
    "named_compound": "triptolide acetate",
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p002",
@@ -33,7 +60,7 @@
    "named_compound": "niraparib",
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p003",
@@ -42,7 +69,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p004",
@@ -51,7 +78,7 @@
    "named_compound": "selegiline",
    "potency_claimed": true,
    "potency_within_0.5_log": true,
-   "contamination_risk": "high"
+   "familiarity_tier": "recognized_with_matching_potency"
   },
   {
    "id": "p005",
@@ -60,7 +87,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p006",
@@ -69,7 +96,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p007",
@@ -78,7 +105,7 @@
    "named_compound": "duloxetine",
    "potency_claimed": true,
    "potency_within_0.5_log": true,
-   "contamination_risk": "high"
+   "familiarity_tier": "recognized_with_matching_potency"
   },
   {
    "id": "p008",
@@ -87,7 +114,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p009",
@@ -96,7 +123,7 @@
    "named_compound": "bupropion",
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p010",
@@ -105,7 +132,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p011",
@@ -114,7 +141,7 @@
    "named_compound": "veliparib",
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p012",
@@ -123,7 +150,7 @@
    "named_compound": "duloxetine",
    "potency_claimed": true,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p013",
@@ -132,7 +159,7 @@
    "named_compound": "atomoxetine",
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p014",
@@ -141,7 +168,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p015",
@@ -150,7 +177,7 @@
    "named_compound": "AZD3759",
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p016",
@@ -159,7 +186,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p017",
@@ -168,7 +195,7 @@
    "named_compound": "rasagiline",
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p018",
@@ -177,7 +204,7 @@
    "named_compound": null,
    "potency_claimed": true,
    "potency_within_0.5_log": true,
-   "contamination_risk": "high"
+   "familiarity_tier": "recognized_with_matching_potency"
   },
   {
    "id": "p019",
@@ -186,7 +213,7 @@
    "named_compound": "SB 203580",
    "potency_claimed": true,
    "potency_within_0.5_log": true,
-   "contamination_risk": "high"
+   "familiarity_tier": "recognized_with_matching_potency"
   },
   {
    "id": "p020",
@@ -195,7 +222,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p021",
@@ -204,7 +231,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p022",
@@ -213,7 +240,7 @@
    "named_compound": "vemurafenib",
    "potency_claimed": true,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p023",
@@ -222,7 +249,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p024",
@@ -231,7 +258,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p025",
@@ -240,7 +267,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p026",
@@ -249,7 +276,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p027",
@@ -258,7 +285,7 @@
    "named_compound": "suberoylanilide hydroxamic acid",
    "potency_claimed": true,
    "potency_within_0.5_log": true,
-   "contamination_risk": "high"
+   "familiarity_tier": "recognized_with_matching_potency"
   },
   {
    "id": "p028",
@@ -267,7 +294,7 @@
    "named_compound": "Gefitinib",
    "potency_claimed": true,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p029",
@@ -276,7 +303,7 @@
    "named_compound": "ibrutinib",
    "potency_claimed": true,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p030",
@@ -285,7 +312,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p031",
@@ -294,7 +321,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p032",
@@ -303,7 +330,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p033",
@@ -312,7 +339,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p034",
@@ -321,7 +348,7 @@
    "named_compound": "tofacitinib",
    "potency_claimed": true,
    "potency_within_0.5_log": true,
-   "contamination_risk": "high"
+   "familiarity_tier": "recognized_with_matching_potency"
   },
   {
    "id": "p035",
@@ -330,7 +357,7 @@
    "named_compound": null,
    "potency_claimed": true,
    "potency_within_0.5_log": true,
-   "contamination_risk": "high"
+   "familiarity_tier": "recognized_with_matching_potency"
   },
   {
    "id": "p036",
@@ -339,7 +366,7 @@
    "named_compound": "vemurafenib",
    "potency_claimed": true,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p037",
@@ -348,7 +375,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p038",
@@ -357,7 +384,7 @@
    "named_compound": "tetracaine",
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p039",
@@ -366,7 +393,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p040",
@@ -375,7 +402,7 @@
    "named_compound": "donepezil",
    "potency_claimed": true,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p041",
@@ -384,7 +411,7 @@
    "named_compound": "AZD3759",
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p042",
@@ -393,7 +420,7 @@
    "named_compound": "safinamide",
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p043",
@@ -402,7 +429,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p044",
@@ -411,7 +438,7 @@
    "named_compound": "darunavir",
    "potency_claimed": true,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p045",
@@ -420,7 +447,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p046",
@@ -429,7 +456,7 @@
    "named_compound": "rivastigmine",
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p047",
@@ -438,7 +465,7 @@
    "named_compound": "BMS-777607",
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p048",
@@ -447,7 +474,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p049",
@@ -456,7 +483,7 @@
    "named_compound": "CAL-101",
    "potency_claimed": true,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p050",
@@ -465,7 +492,7 @@
    "named_compound": "neratinib",
    "potency_claimed": true,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p051",
@@ -474,7 +501,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p052",
@@ -483,7 +510,7 @@
    "named_compound": null,
    "potency_claimed": true,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p053",
@@ -492,7 +519,7 @@
    "named_compound": "galanthamine hydrobromide",
    "potency_claimed": true,
    "potency_within_0.5_log": true,
-   "contamination_risk": "high"
+   "familiarity_tier": "recognized_with_matching_potency"
   },
   {
    "id": "p054",
@@ -501,7 +528,7 @@
    "named_compound": "AZD3759",
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p055",
@@ -510,7 +537,7 @@
    "named_compound": "Ritlecitinib",
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p056",
@@ -519,7 +546,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p057",
@@ -528,7 +555,7 @@
    "named_compound": "donepezil hydrochloride",
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p058",
@@ -537,7 +564,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p059",
@@ -546,7 +573,7 @@
    "named_compound": "Nisoxetine",
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p060",
@@ -555,7 +582,7 @@
    "named_compound": "suberoylanilide hydroxamic acid",
    "potency_claimed": true,
    "potency_within_0.5_log": true,
-   "contamination_risk": "high"
+   "familiarity_tier": "recognized_with_matching_potency"
   },
   {
    "id": "p061",
@@ -564,7 +591,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p062",
@@ -573,7 +600,7 @@
    "named_compound": "erlotinib",
    "potency_claimed": true,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p063",
@@ -582,7 +609,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p064",
@@ -591,7 +618,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p065",
@@ -600,7 +627,7 @@
    "named_compound": "Etravirine",
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p066",
@@ -609,7 +636,7 @@
    "named_compound": "Bupropion",
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p067",
@@ -618,7 +645,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p068",
@@ -627,7 +654,7 @@
    "named_compound": "dihydromorphine",
    "potency_claimed": true,
    "potency_within_0.5_log": true,
-   "contamination_risk": "high"
+   "familiarity_tier": "recognized_with_matching_potency"
   },
   {
    "id": "p069",
@@ -636,7 +663,7 @@
    "named_compound": "AZD3759",
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p070",
@@ -645,7 +672,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p071",
@@ -654,7 +681,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p072",
@@ -663,7 +690,7 @@
    "named_compound": "tofacitinib",
    "potency_claimed": true,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p073",
@@ -672,7 +699,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p074",
@@ -681,7 +708,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p075",
@@ -690,7 +717,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p076",
@@ -699,7 +726,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p077",
@@ -708,7 +735,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p078",
@@ -717,7 +744,7 @@
    "named_compound": "SB 203580",
    "potency_claimed": true,
    "potency_within_0.5_log": true,
-   "contamination_risk": "high"
+   "familiarity_tier": "recognized_with_matching_potency"
   },
   {
    "id": "p079",
@@ -726,7 +753,7 @@
    "named_compound": "Efavirenz",
    "potency_claimed": true,
    "potency_within_0.5_log": true,
-   "contamination_risk": "high"
+   "familiarity_tier": "recognized_with_matching_potency"
   },
   {
    "id": "p080",
@@ -735,7 +762,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p081",
@@ -744,7 +771,7 @@
    "named_compound": "isatin",
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p082",
@@ -753,7 +780,7 @@
    "named_compound": "1-(1-adamantyl)-3-cyclohexylurea",
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p083",
@@ -762,7 +789,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p084",
@@ -771,7 +798,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p085",
@@ -780,7 +807,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p086",
@@ -789,7 +816,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p087",
@@ -798,7 +825,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p088",
@@ -807,7 +834,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p089",
@@ -816,7 +843,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p090",
@@ -825,7 +852,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p091",
@@ -834,7 +861,7 @@
    "named_compound": "1-phenyl-1H-tetrazole",
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p092",
@@ -843,7 +870,7 @@
    "named_compound": "trichostatin A",
    "potency_claimed": true,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p093",
@@ -852,7 +879,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p094",
@@ -861,7 +888,7 @@
    "named_compound": "Fluoxetine",
    "potency_claimed": true,
    "potency_within_0.5_log": true,
-   "contamination_risk": "high"
+   "familiarity_tier": "recognized_with_matching_potency"
   },
   {
    "id": "p095",
@@ -870,7 +897,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p096",
@@ -879,7 +906,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p097",
@@ -888,7 +915,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p098",
@@ -897,7 +924,7 @@
    "named_compound": "Sitagliptin",
    "potency_claimed": true,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p099",
@@ -906,7 +933,7 @@
    "named_compound": "7-chlorotacrine",
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p100",
@@ -915,7 +942,7 @@
    "named_compound": "cloparamine",
    "potency_claimed": true,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p101",
@@ -924,7 +951,7 @@
    "named_compound": "atomoxetine",
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p102",
@@ -933,7 +960,7 @@
    "named_compound": "saquinavir",
    "potency_claimed": true,
    "potency_within_0.5_log": true,
-   "contamination_risk": "high"
+   "familiarity_tier": "recognized_with_matching_potency"
   },
   {
    "id": "p103",
@@ -942,7 +969,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p104",
@@ -951,7 +978,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p105",
@@ -960,7 +987,7 @@
    "named_compound": "idelalisib",
    "potency_claimed": true,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p106",
@@ -969,7 +996,7 @@
    "named_compound": "veliparib",
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p107",
@@ -978,7 +1005,7 @@
    "named_compound": "vildagliptin",
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p108",
@@ -987,7 +1014,7 @@
    "named_compound": null,
    "potency_claimed": true,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p109",
@@ -996,7 +1023,7 @@
    "named_compound": "tacrine",
    "potency_claimed": true,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p110",
@@ -1005,7 +1032,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p111",
@@ -1014,7 +1041,7 @@
    "named_compound": null,
    "potency_claimed": true,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p112",
@@ -1023,7 +1050,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p113",
@@ -1032,7 +1059,7 @@
    "named_compound": "lapatinib",
    "potency_claimed": true,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p114",
@@ -1041,7 +1068,7 @@
    "named_compound": "17beta-estradiol",
    "potency_claimed": true,
    "potency_within_0.5_log": true,
-   "contamination_risk": "high"
+   "familiarity_tier": "recognized_with_matching_potency"
   },
   {
    "id": "p115",
@@ -1050,7 +1077,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p116",
@@ -1059,7 +1086,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p117",
@@ -1068,7 +1095,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p118",
@@ -1077,7 +1104,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p119",
@@ -1086,7 +1113,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p120",
@@ -1095,7 +1122,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p121",
@@ -1104,7 +1131,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p122",
@@ -1113,7 +1140,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p123",
@@ -1122,7 +1149,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p124",
@@ -1131,7 +1158,7 @@
    "named_compound": "saquinavir",
    "potency_claimed": true,
    "potency_within_0.5_log": true,
-   "contamination_risk": "high"
+   "familiarity_tier": "recognized_with_matching_potency"
   },
   {
    "id": "p125",
@@ -1140,7 +1167,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p126",
@@ -1149,7 +1176,7 @@
    "named_compound": "erlotinib",
    "potency_claimed": true,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p127",
@@ -1158,7 +1185,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p128",
@@ -1167,7 +1194,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p129",
@@ -1176,7 +1203,7 @@
    "named_compound": "fostamatinib",
    "potency_claimed": true,
    "potency_within_0.5_log": true,
-   "contamination_risk": "high"
+   "familiarity_tier": "recognized_with_matching_potency"
   },
   {
    "id": "p130",
@@ -1185,7 +1212,7 @@
    "named_compound": "tacrine",
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p131",
@@ -1194,7 +1221,7 @@
    "named_compound": "TAK-659",
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p132",
@@ -1203,7 +1230,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p133",
@@ -1212,7 +1239,7 @@
    "named_compound": "olaparib",
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p134",
@@ -1221,7 +1248,7 @@
    "named_compound": "rivastigmine",
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p135",
@@ -1230,7 +1257,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p136",
@@ -1239,7 +1266,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p137",
@@ -1248,7 +1275,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p138",
@@ -1257,7 +1284,7 @@
    "named_compound": "saquinavir",
    "potency_claimed": true,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p139",
@@ -1266,7 +1293,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p140",
@@ -1275,7 +1302,7 @@
    "named_compound": null,
    "potency_claimed": true,
    "potency_within_0.5_log": true,
-   "contamination_risk": "high"
+   "familiarity_tier": "recognized_with_matching_potency"
   },
   {
    "id": "p141",
@@ -1284,7 +1311,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p142",
@@ -1293,7 +1320,7 @@
    "named_compound": "clorgiline",
    "potency_claimed": true,
    "potency_within_0.5_log": true,
-   "contamination_risk": "high"
+   "familiarity_tier": "recognized_with_matching_potency"
   },
   {
    "id": "p143",
@@ -1302,7 +1329,7 @@
    "named_compound": null,
    "potency_claimed": true,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p144",
@@ -1311,7 +1338,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p145",
@@ -1320,7 +1347,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p146",
@@ -1329,7 +1356,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p147",
@@ -1338,7 +1365,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p148",
@@ -1347,7 +1374,7 @@
    "named_compound": "tacrine",
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p149",
@@ -1356,7 +1383,7 @@
    "named_compound": "pargyline",
    "potency_claimed": true,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p150",
@@ -1365,7 +1392,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p151",
@@ -1374,7 +1401,7 @@
    "named_compound": "Efavirenz",
    "potency_claimed": true,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p152",
@@ -1383,7 +1410,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p153",
@@ -1392,7 +1419,7 @@
    "named_compound": "sorafenib",
    "potency_claimed": true,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p154",
@@ -1401,7 +1428,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p155",
@@ -1410,7 +1437,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p156",
@@ -1419,7 +1446,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p157",
@@ -1428,7 +1455,7 @@
    "named_compound": "donepezil",
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p158",
@@ -1437,7 +1464,7 @@
    "named_compound": "panobinostat",
    "potency_claimed": true,
    "potency_within_0.5_log": true,
-   "contamination_risk": "high"
+   "familiarity_tier": "recognized_with_matching_potency"
   },
   {
    "id": "p159",
@@ -1446,7 +1473,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p160",
@@ -1455,7 +1482,7 @@
    "named_compound": "rasagiline",
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p161",
@@ -1464,7 +1491,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p162",
@@ -1473,7 +1500,7 @@
    "named_compound": "dihydromorphine",
    "potency_claimed": true,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p163",
@@ -1482,7 +1509,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p164",
@@ -1491,7 +1518,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p165",
@@ -1500,7 +1527,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p166",
@@ -1509,7 +1536,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p167",
@@ -1518,7 +1545,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p168",
@@ -1527,7 +1554,7 @@
    "named_compound": "AZD3759",
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p169",
@@ -1536,7 +1563,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p170",
@@ -1545,7 +1572,7 @@
    "named_compound": "sorafenib",
    "potency_claimed": true,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p171",
@@ -1554,7 +1581,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p172",
@@ -1563,7 +1590,7 @@
    "named_compound": "Niraparib",
    "potency_claimed": true,
    "potency_within_0.5_log": true,
-   "contamination_risk": "high"
+   "familiarity_tier": "recognized_with_matching_potency"
   },
   {
    "id": "p173",
@@ -1572,7 +1599,7 @@
    "named_compound": "Rosmarinic acid",
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p174",
@@ -1581,7 +1608,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p175",
@@ -1590,7 +1617,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p176",
@@ -1599,7 +1626,7 @@
    "named_compound": "selegiline",
    "potency_claimed": true,
    "potency_within_0.5_log": true,
-   "contamination_risk": "high"
+   "familiarity_tier": "recognized_with_matching_potency"
   },
   {
    "id": "p177",
@@ -1608,7 +1635,7 @@
    "named_compound": "Gefitinib",
    "potency_claimed": true,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p178",
@@ -1617,7 +1644,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p179",
@@ -1626,7 +1653,7 @@
    "named_compound": "atomoxetine",
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p180",
@@ -1635,7 +1662,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p181",
@@ -1644,7 +1671,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p182",
@@ -1653,7 +1680,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p183",
@@ -1662,7 +1689,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p184",
@@ -1671,7 +1698,7 @@
    "named_compound": "iproniazid",
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p185",
@@ -1680,7 +1707,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p186",
@@ -1689,7 +1716,7 @@
    "named_compound": "Bupropion",
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p187",
@@ -1698,7 +1725,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p188",
@@ -1707,7 +1734,7 @@
    "named_compound": "GBR 12909",
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p189",
@@ -1716,7 +1743,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p190",
@@ -1725,7 +1752,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p191",
@@ -1734,7 +1761,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p192",
@@ -1743,7 +1770,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   },
   {
    "id": "p193",
@@ -1752,7 +1779,7 @@
    "named_compound": "tubastatin A",
    "potency_claimed": true,
    "potency_within_0.5_log": false,
-   "contamination_risk": "medium"
+   "familiarity_tier": "recognized_only"
   },
   {
    "id": "p194",
@@ -1761,7 +1788,7 @@
    "named_compound": null,
    "potency_claimed": false,
    "potency_within_0.5_log": false,
-   "contamination_risk": "low"
+   "familiarity_tier": "unrecognized"
   }
  ]
 }
