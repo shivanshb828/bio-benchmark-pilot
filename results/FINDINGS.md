@@ -3,125 +3,119 @@
 **Models:** claude-opus-4-6 (temperature 0), gpt-5.6-sol (temperature 1, API-enforced)  
 **Date:** 2026-09-01  
 **Sample:** 195 items, 168 unique assay pairs. 1 item (p122) excluded from scoring
-by the indirect leakage gate (assay description contained "200 nM" within 0.051
-log units of p\_b). All scoring denominators are **n=194**; p122 is excluded
-from both McNemar pairings and cluster-weighted metrics throughout.
+(indirect leakage gate: assay description contained "200 nM" within 0.051 log
+units of p\_b). Scoring denominators are **n=194** throughout.  
+All figures cluster-weighted (168 unique pairs weighted equally; two repeated
+assay pairs account for 27/195 items and inflate as-is false-merge by 3–4 pp).
 
 ---
 
-## What was measured
+## Corrections
 
-The same compound in two independent assays either yields agreeing IC50s
-(*commensurable*) or diverging ones (*not commensurable*). Observed divergence
-is the label; no annotation required. We value-blind the model and ask it to
-predict agreement from experimental context.
+Two earlier versions of this document presented incorrect headline figures.
+Both errors were caught in review and are recorded here.
 
-**Arm A (control\_forced):** SMILES + target ID only. INSUFFICIENT\_INFO
-forbidden; model must commit.  
-**Arm B (metadata\_forced):** same plus full ChEMBL assay descriptions.
-INSUFFICIENT\_INFO also forbidden, matching Arm A exactly.
+**Error 1 (abstention scoring).** An initial scoring pass counted abstentions
+(INSUFFICIENT\_INFO) as wrong in Arm B but there were no abstentions in
+Arm A (where abstention was forbidden). This inflated the apparent Arm A→B
+improvement for metrics computed over the full sample.
 
-All figures are **cluster-weighted** (168 unique assay pairs; 27/195 items
-from two repeated pairs inflate as-is false-merge by 3–4 pp).
+**Error 2 (schema mismatch).** Arm A used `SCHEMA_FORCED` (INSUFFICIENT\_INFO
+forbidden). Arm B used the free-choice `SCHEMA` (INSUFFICIENT\_INFO permitted).
+Comparing the two produced a spurious denominator asymmetry: GPT abstained on
+52/195 Arm B items; Claude on 13. The published Δfm figures (+0.100 Claude,
++0.455 GPT) were computed over different effective denominators and are not
+comparable. The McNemar pairing was also affected.
 
-**Schema correction.** An earlier run used `metadata` (free-choice schema,
-INSUFFICIENT\_INFO permitted) against `control_forced` (forced schema). That
-comparison was invalid: GPT abstained on 52/195 Arm B items; Claude on 13.
-The corrected comparison uses `metadata_forced` for Arm B throughout.
-Earlier free-choice metadata figures are kept as a secondary finding on
-abstention behaviour.
+**Fix.** A new arm, `metadata_forced`, uses `SCHEMA_FORCED` for Arm B. All
+findings below use `control_forced` vs `metadata_forced`, matching schemas
+exactly. The free-choice metadata arm results are retained in the data as a
+secondary finding on abstention behaviour; they are not used to support any
+claim in this document.
 
 ---
 
-## Finding 1 — Claude improves with descriptions; GPT does not
+## Finding 1 — Neither model beats simple non-LLM baselines
 
-**Primary (matched schemas, cluster-weighted):**
+| Predictor | Balanced accuracy |
+|---|---|
+| Chance | 0.500 |
+| Claude metadata\_forced | 0.561 [0.506, 0.613] |
+| GPT metadata\_forced | 0.549 [0.504, 0.598] |
+| Structure-only ML (CV) | **0.578** |
+| Assay/target history (CV) | **0.648** |
 
-| Model | Arm A bacc | Arm B bacc | Δ | McNemar χ²(1) | p |
+Both models fall below the structure-only ML baseline (0.578) and well below
+the history baseline (0.648). The benchmark is not solved with full assay
+descriptions. This result is unaffected by the schema correction.
+
+Neither McNemar test on the Arm A→B comparison is significant at p < 0.05
+after correction for multiple comparisons across the pilot. Claude's nominal
+p=0.031 (see Finding 2) is reported uncorrected; with even a simple two-test
+Bonferroni correction the threshold would be 0.025, and this result falls
+outside it. GPT's p=0.474 is clearly non-significant regardless of correction.
+
+---
+
+## Finding 2 — The models fail in different kinds, not degrees
+
+**Matched-schema comparison (control\_forced vs metadata\_forced):**
+
+| Model | Arm A bacc | Arm B bacc | Δ bacc | p (uncorr.) |
+|---|---|---|---|---|
+| Claude | 0.490 | **0.561** | +0.071 | 0.031 |
+| GPT | 0.514 | **0.549** | +0.035 | 0.474 |
+
+| Model | Arm A fm | Arm B fm | Δ fm | Arm A fs | Arm B fs |
 |---|---|---|---|---|---|
-| Claude | 0.490 [0.422, 0.559] | **0.585** [0.523, 0.644] | +0.095 | 4.661 | **0.031** |
-| GPT | 0.514 [0.449, 0.584] | 0.568 [0.516, 0.623] | +0.054 | 0.512 | 0.474 |
+| Claude | 0.694 | 0.715 | **+0.021** | 0.326 | 0.115 |
+| GPT | 0.267 | 0.782 | **+0.515** | 0.705 | 0.082 |
 
-Claude shows a statistically significant improvement (p=0.031): 40 items
-flipped wrong→right, 22 right→wrong. GPT does not (p=0.474): 67 flipped
-right, 58 wrong, net +9.
+The ratio of Δfm is approximately 25×. These are not the same phenomenon at
+different magnitudes; they are mechanistically distinct.
 
-Claude's Arm B (0.585) clears the structure-only ML baseline (0.578) and
-approaches the lower bound of the best history baseline CI (0.648 ± 0.070).
-GPT's Arm B (0.568) stays below the structure-only baseline.
+**Claude** shows a modest, nominally significant improvement in balanced
+accuracy (+0.071, p=0.031 uncorrected) with descriptions. Its false-merge
+rate is essentially flat (+0.021). The improvement comes from correctly
+identifying commensurable pairs rather than from shifting between error types.
 
-The improvement is real in the sense that it is not purely a false-merge
-increase: Claude's false-merge changes by only +0.021 (see Finding 2).
+**GPT** shows no significant improvement (p=0.474). Its errors migrate almost
+completely: false-merge rises from 0.267 to 0.782; false-split falls from
+0.705 to 0.082. Descriptions converted GPT's NOT\_COMMENSURABLE default into
+a COMMENSURABLE default without meaningfully increasing accuracy. 40 items
+improved, 31 worsened under the schema-corrected pairing.
 
----
+**Do not average or aggregate these two numbers.** The Δfm values describe
+opposite failure modes with opposite downstream consequences: false merges
+inject noise into training data; false splits discard usable measurements.
+A single aggregate figure would hide this difference.
 
-## Finding 2 — Models shift toward merging, but magnitudes differ by 25×
-
-| Model | Arm A fm | Arm B fm | Δfm | Arm A fs | Arm B fs |
-|---|---|---|---|---|---|
-| Claude | 0.694 | **0.715** | +0.021 | 0.326 | 0.115 |
-| GPT | 0.267 | **0.782** | **+0.514** | 0.705 | 0.082 |
-
-Both false-merge rates rose. Claude's increase is negligible (+0.021); GPT's is
-+0.514 — nearly complete error migration. GPT converted its NOT\_COMMENSURABLE
-default into a COMMENSURABLE default when given descriptions. False-split fell
-from 0.705 to 0.082; false-merge rose from 0.267 to 0.782. The distribution
-of errors nearly flipped; accuracy barely changed.
-
-**Do not average 0.715 and 0.782.** They describe different mechanisms:
-Claude's errors remain distributed across classes; GPT's errors migrated
-almost entirely to false merges. A single number would hide this difference.
-
-The shared direction (both Δfm positive) is present but misleading as a
-summary: +0.021 and +0.514 are not the same phenomenon. Claude used the
-descriptions productively; GPT redistributed its errors.
-
----
-
-## Temperature is not a confound
-
-gpt-5.6-sol rejects temperature=0 (HTTP 400). Claude ran at temp=0 and also
-at API default, to verify the asymmetry is immaterial:
-
-| | Arm B bacc | Arm B fm |
-|---|---|---|
-| Claude temp=0 | 0.585 | 0.715 |
-| Claude temp=default | 0.556 | 0.789 |
-| Δ | −0.029 | +0.074 |
-
-The differences are inside the bootstrap CI width (~0.14). Temperature is not
-a material confound; the Claude–GPT comparison needs no asterisk.
-
----
-
-## Abstention as secondary finding
-
-Under the free-choice schema (`metadata`, INSUFFICIENT\_INFO permitted),
-GPT abstained on 52/195 items (26.7%); Claude on 13 (6.7%). The items GPT
-abstained on were predominantly NOT\_COMMENSURABLE items it would have
-merged when forced to commit — exactly what metadata\_forced reveals.
-GPT's abstention is a meaningful signal: given the option, it declines on
-the items it would otherwise get wrong.
+The "shared direction" claim (both Δfm positive) is technically true but
+numerically vacuous at a 25× ratio. It is dropped from this version.
 
 ---
 
 ## Limitations
 
+**Headline result changed twice under methodological correction.** The initial
+Δfm for Claude was +0.100 (abstention artefact), then revised to +0.021 after
+fixing the schema mismatch. This sensitivity is itself evidence that protocol
+details — specifically which response options are available and how abstentions
+are counted — materially affect measured commensurability performance. Future
+work should pre-register the exact schema before running.
+
 **Two model families.** Anthropic (Claude) and OpenAI (GPT-5.6-Sol). Two
-families cannot distinguish a pattern from a coincidence. The directions may
-differ or reverse on a third model. `src/run_arm.py` uses a provider registry;
-extending to Gemini or Grok is two config lines and an API key.
+families cannot distinguish a pattern from a coincidence; either direction
+of Δfm could reverse on a third model.
 
-**n=194 scored items.** Excluding p122 reduces the sample by 0.5%. The impact
-on all reported metrics is negligible; it is noted for reproducibility.
+**p=0.031 is nominal and uncorrected.** With two models and two arms,
+even a Bonferroni correction raises the threshold to 0.025. Claude's
+Arm A→B improvement should be treated as a directional signal, not an
+established result.
 
-**GPT abstention asymmetry.** In the free-choice arm GPT abstained 4× more
-than Claude. Forced-choice metrics (used in Findings 1 and 2) are the primary
-comparison; free-choice abstention rates are reported separately.
+**n=194 scored items.** Excluding p122 reduces the sample by 0.5%.
+McNemar has reliable power only for ~15 pp swings at this n; the Claude
+shift (+7.1 pp) is near the detection limit.
 
-**IC50 only; [0.3, 1.0] gap excluded.** Both baselines and LLM results will
-degrade when the ambiguous band is reinstated in v1.
-
-**Small n.** 99 unique divergent compounds caps total items near 200.
-McNemar requires ~15 pp swings for reliable detection at this n; Claude's
-+9.5 pp Arm A→B shift is near that threshold.
+**IC50 only; [0.3, 1.0] gap excluded.** Both baselines and LLM results
+will degrade when the ambiguous band is reinstated in v1.
