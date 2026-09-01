@@ -17,5 +17,24 @@
   "false_merge": 0.7894736842105263,
   "false_split": 0.08,
   "abstention": 0.06666666666666667
+ },
+ {
+  "arm": "metadata",
+  "model": "gpt",
+  "n": 195,
+  "balanced_accuracy": 0.40921052631578947,
+  "ci": [
+   0.34674531282915527,
+   0.46734234234234234
+  ],
+  "balanced_accuracy_committed": 0.5594911937377691,
+  "ci_committed": [
+   0.5006922468354431,
+   0.6233766233766234
+  ],
+  "n_committed": 143,
+  "false_merge": 0.5684210526315789,
+  "false_split": 0.08,
+  "abstention": 0.26666666666666666
  }
 ]

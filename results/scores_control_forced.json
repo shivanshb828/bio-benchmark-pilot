@@ -21,20 +21,20 @@
  {
   "arm": "control_forced",
   "model": "gpt",
-  "n": 2,
-  "balanced_accuracy": 0.5,
+  "n": 195,
+  "balanced_accuracy": 0.5189473684210526,
   "ci": [
-   0.5,
-   0.5
+   0.45714285714285713,
+   0.5805192064162094
   ],
-  "balanced_accuracy_committed": 0.5,
+  "balanced_accuracy_committed": 0.5189473684210526,
   "ci_committed": [
-   0.5,
-   0.5
+   0.45714285714285713,
+   0.5805192064162094
   ],
-  "n_committed": 2,
-  "false_merge": 0.0,
-  "false_split": 1.0,
+  "n_committed": 195,
+  "false_merge": 0.24210526315789474,
+  "false_split": 0.72,
   "abstention": 0.0
  }
 ]
