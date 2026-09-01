@@ -43,35 +43,46 @@ signal is present; neither model extracts it.
 
 ---
 
-## Finding 2 — Two frontier models exhibit opposite default priors
+## Finding 2 — Assay descriptions push both models toward merging
 
-On identical inputs without metadata:
+The two models start from opposite priors without metadata, then converge on
+the same failure mode when descriptions are provided.
+
+**Arm A — opposite starting priors:**
 
 | Model | False merge | False split | Default |
 |---|---|---|---|
-| Claude | **0.694** (0.734 as-is) | 0.326 | COMMENSURABLE |
-| GPT | 0.267 | **0.705** (0.720 as-is) | NOT\_COMMENSURABLE |
+| Claude | 0.694 (0.734 as-is) | 0.326 | COMMENSURABLE |
+| GPT | 0.267 | 0.705 (0.720 as-is) | NOT\_COMMENSURABLE |
 
-Claude calls 69% of truly-divergent pairs poolable. GPT calls 70% of
-truly-poolable pairs unpoolable. The biases are symmetric in magnitude and
-opposite in direction.
+**Arm B — both shift toward merging:**
 
-With metadata (Arm B):
+| Model | False merge | False split | Δ false-merge |
+|---|---|---|---|
+| Claude | **0.795** (0.831 as-is) | 0.089 | **+0.101** |
+| GPT | **0.722** (0.768 as-is) | 0.113 | **+0.455** |
 
-| Model | False merge | False split |
-|---|---|---|
-| Claude | **0.796** (0.831 as-is) | 0.089 |
-| GPT | **0.730** (0.768 as-is) | 0.113 |
+Both false-merge rates rose. GPT's shift is +0.455 — its 0.592-point false-split
+collapse converted almost entirely into false merges rather than into correct
+calls. When given assay descriptions, GPT migrated from calling poolable pairs
+non-poolable, to calling non-poolable pairs poolable. The net accuracy change
+was −19 items: the errors redistributed, not resolved.
 
-Both models compress their minority-class error with descriptions while their
-dominant error worsens. **Do not average 0.796 and 0.730.** They measure the
-same quantity through opposite mechanisms. A single aggregate would obscure
-opposite failure modes with opposite downstream consequences (noise injection
-vs sample waste).
+**The shared direction is the stronger claim.** Descriptions induce a
+COMMENSURABLE bias in both models regardless of their starting prior. The
+opposite starting points (Finding 2A) and the convergent failure mode (Finding 2B)
+together suggest that assay descriptions provide the model enough information to
+commit — but in the wrong direction. "Same target, similar description" is read
+as confirmation of poolability even when the actual values diverge.
 
-This divergence — two models with opposite priors on identical inputs — is
-itself an argument for independent measurement rather than using any single
-model as a curation oracle.
+**Do not average 0.795 and 0.722.** The Δ 0.073 reflects different starting
+positions, not different sensitivity. GPT's shift is larger because it had more
+room to move from its NOT\_COMMENSURABLE prior.
+
+The starting-point divergence itself remains a finding: two models with opposite
+priors on identical inputs is an argument against using any single model as a
+curation oracle — whichever direction it defaults, the other direction's errors
+are invisible.
 
 ---
 
@@ -84,8 +95,11 @@ run-to-run variance. Treat GPT confidence intervals as lower bounds on
 uncertainty until a repeat run is done.
 
 **n=2 models.** No claim about "frontier models in general" is supported by
-two models. The false-merge direction is Claude-specific; the false-split
-direction is GPT-specific. Both could reverse on a third model.
+two models. The description-induced shift toward merging is shared by both
+models here, but the magnitude differs substantially (Claude +0.101, GPT
++0.455), and whether the direction is universal or a coincidence of these two
+models cannot be determined at n=2. A third model could exhibit a different
+pattern.
 
 **99-compound ceiling.** The divergent class covers only 99 unique compounds.
 McNemar detects ~15 pp swings at n ≈ 190; the 6–7 pp Arm A→B shifts are below
