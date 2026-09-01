@@ -64,9 +64,8 @@ the same failure mode when descriptions are provided.
 
 Both false-merge rates rose. GPT's shift is +0.455 — its 0.592-point false-split
 collapse converted almost entirely into false merges rather than into correct
-calls. When given assay descriptions, GPT migrated from calling poolable pairs
-non-poolable, to calling non-poolable pairs poolable. The net accuracy change
-was −19 items: the errors redistributed, not resolved.
+calls. When given assay descriptions, GPT migrated from splitting poolable pairs to
+merging divergent ones. Net accuracy: −19 items. Errors redistributed, not resolved.
 
 **The shared direction is the stronger claim.** Descriptions induce a
 COMMENSURABLE bias in both models regardless of their starting prior. The
