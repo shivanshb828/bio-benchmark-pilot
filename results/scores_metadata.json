@@ -1,21 +1,21 @@
 [
  {
   "arm": "metadata",
-  "model": "claude",
+  "model": "claude_default",
   "n": 195,
-  "balanced_accuracy": 0.4989473684210526,
+  "balanced_accuracy": 0.5039473684210526,
   "ci": [
-   0.44450873132758256,
-   0.5494002525252525
+   0.4493415463041631,
+   0.5550992105824621
   ],
-  "balanced_accuracy_committed": 0.5398550724637681,
+  "balanced_accuracy_committed": 0.5373549323017408,
   "ci_committed": [
-   0.491421568627451,
-   0.5915790745439169
+   0.489010989010989,
+   0.590843023255814
   ],
   "n_committed": 182,
-  "false_merge": 0.7894736842105263,
-  "false_split": 0.08,
+  "false_merge": 0.7684210526315789,
+  "false_split": 0.09,
   "abstention": 0.06666666666666667
  }
 ]
