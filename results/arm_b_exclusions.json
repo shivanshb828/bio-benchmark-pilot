@@ -1,7 +1,27 @@
 {
  "n_total": 195,
- "n_excluded": 0,
+ "n_excluded": 1,
  "threshold_log_units": 0.1,
  "reason": "Description text contains a concentration value (with unit pM/nM/uM/mM) within 0.1 log units of p_a or p_b. These items may give the model indirect access to a true IC50 value.",
- "excluded_items": []
+ "excluded_items": [
+  {
+   "id": "p122",
+   "label": "NOT_COMMENSURABLE",
+   "assay_a": "CHEMBL3363963",
+   "assay_b": "CHEMBL3706060",
+   "p_a": 7.92,
+   "p_b": 6.75,
+   "delta": 1.17,
+   "hits": [
+    {
+     "matched_text": "200 nM",
+     "pchembl_converted": 6.699,
+     "p_a": 7.92,
+     "err_a": 1.221,
+     "p_b": 6.75,
+     "err_b": 0.051
+    }
+   ]
+  }
+ ]
 }
