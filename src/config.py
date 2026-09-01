@@ -19,7 +19,9 @@ MAX_PER_TARGET = 15   # stops one promiscuous target dominating the sample
 
 MODELS = {
     "claude": {"provider": "anthropic", "model": "claude-opus-4-6"},
-    "gpt":    {"provider": "openai",    "model": "gpt-5.2"},
+    # gpt-5.6-sol is the frontier model comparable to Opus.
+    # It does not support temperature control (reasoning model); call_openai omits it.
+    "gpt":    {"provider": "openai",    "model": "gpt-5.6-sol"},
 }
 
 CHEMBL_API = "https://www.ebi.ac.uk/chembl/api/data"

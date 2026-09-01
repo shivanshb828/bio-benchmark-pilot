@@ -2,7 +2,8 @@
 
 **Can a frontier model tell whether two independently reported bioactivity measurements can legitimately be pooled into one training set?**
 
-Status: baselines and controls complete, Arm B in progress. No conclusion yet.
+Status: Arm B complete (claude-opus-4-6). **GPT results pending** — single-model
+results cannot support a general frontier-model claim. See Known Limitations.
 
 ---
 
@@ -175,9 +176,77 @@ poolable. The asymmetry is stark: 68% correct on agreeing pairs, 26% on
 diverging ones. This is a default toward merging in the absence of signal, not
 anti-correlation with truth.
 
-### Arm B
+### Arm B — Metadata (full assay descriptions)
 
-In progress.
+**Model:** claude-opus-4-6 · **n:** 195 scored, 1 excluded (leakage gate),
+194 in paired analysis · **Coverage:** 280/280 assay descriptions (100%)
+
+| Metric | Mode (a): abstentions wrong | Mode (b): abstentions excluded |
+|---|---|---|
+| Balanced accuracy | 0.499 [0.445, 0.549] | **0.540 [0.491, 0.592]** |
+| FALSE MERGE rate | 0.789 | **0.833** |
+| False split rate | 0.080 | 0.087 |
+| Abstention rate | **6.7%** (13 items) | — |
+
+Reference points:
+
+| Predictor | balanced accuracy |
+|---|---|
+| Arm A forced (no metadata, claude) | 0.472 [0.406, 0.536] |
+| Chance | 0.500 |
+| **Arm B (claude, committed)** | **0.540 [0.491, 0.592]** |
+| Structure-only ML baseline | 0.578 — **not cleared** |
+| Best history baseline | 0.648 — **not cleared** |
+
+**McNemar's test (194 paired items, continuity corrected):
+χ²(1) = 0.403, p = 0.525 — not significant.**
+34 items flipped wrong→right with metadata; 28 flipped right→wrong.
+
+**Accuracy by delta band:**
+
+| Delta | n | Arm A forced | Arm B | Δ |
+|---|---|---|---|---|
+| [0.0, 0.1) — COMM | 46 | 0.57 | **0.80** | +0.23 |
+| [0.1, 0.3) — COMM | 54 | 0.78 | **0.87** | +0.09 |
+| [1.0, 1.5) — NOT_C | 41 | 0.20 | **0.12** | −0.08 |
+| [1.5, 2.5) — NOT_C | 26 | 0.38 | **0.31** | −0.07 |
+| [2.5, ∞) — NOT_C | 28 | 0.25 | **0.07** | **−0.18** |
+
+**The critical findings, stated plainly:**
+
+1. **The benchmark lacks headroom against simple baselines.** Arm B (0.540)
+   does not clear the structure-only ML baseline (0.578), which uses no assay
+   information. A second-generation pipeline with better descriptions or
+   structured metadata fields may change this; this generation does not.
+
+2. **The false-merge rate increased with metadata (0.737 → 0.833).** The
+   operationally important metric went the wrong direction. Assay descriptions
+   made the model *more* confident that divergent pairs are commensurable,
+   not less. This is a safety-relevant finding: a curation pipeline relying on
+   Arm B calls would pool 83% of discordant pairs.
+
+3. **Metadata helped for COMMENSURABLE (+16 pp) and hurt for NOT_COMMENSURABLE
+   (−11 pp).** The model reads similar-sounding descriptions and infers
+   commensurability regardless of the specific methodology differences that
+   cause divergence.
+
+**Description quality caveat.** An alternative explanation is that ChEMBL
+descriptions are too terse (median 14 words) to carry the signal, and the model's
+failure is information-limited rather than reasoning-limited. Analysis in
+`src/describe_metadata.py` argues against this: accuracy is flat (Δ bacc = 0.004)
+regardless of whether the two assay descriptions differ on detectable methodology
+categories (detection technology, cell system, substrate, concentration). The
+signal is present but ignored. Qualitative evidence in `results/FAILURE_CASES.md`
+shows the same: in 9 of the 10 worst false merges, the model explicitly notices
+the methodological difference and then invokes a generic prior to dismiss it.
+Only 1 of 10 cases (p076, HIV integrase with identical descriptions) is a genuine
+information gap.
+
+**Single-model caveat.** All Arm B results are from claude-opus-4-6. A second
+model (GPT) is required before this supports any claim about frontier models in
+general. The OPENAI_API_KEY was not available in this run environment. GPT results
+will be added when the key is provided; until then, treat all findings as
+single-model observations that may or may not generalise.
 
 ## Layout
 
@@ -232,8 +301,11 @@ loader is added; BRENDA enzyme kinetics is the intended contrast, since the
 method should transfer to any domain where the same quantity is measured
 repeatedly under varying protocols.
 
-Results to date are single-model. A second model is needed before any of this
-supports a general claim.
+**Single-model results.** All Arm A and Arm B runs are claude-opus-4-6 only.
+A second model (GPT) is needed before any of this supports a general frontier-model
+claim. The OPENAI_API_KEY was not available during the initial run; add it and
+rerun `src/run_arm.py` for both arms to unlock the cross-model comparison.
+This is the biggest open gap in the current results.
 
 The method does not extend to categorical labels such as gene function or
 variant pathogenicity. Those have no delta, so ground truth stops being free,
