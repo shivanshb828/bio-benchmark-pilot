@@ -2,8 +2,8 @@
 
 **Can a frontier model tell whether two independently reported bioactivity measurements can legitimately be pooled into one training set?**
 
-Status: Arm B complete (claude-opus-4-6). **GPT results pending** — single-model
-results cannot support a general frontier-model claim. See Known Limitations.
+Status: **Pilot complete.** Two model families evaluated (Anthropic, OpenAI); within-model
+replication run. See [FINDINGS.md](results/FINDINGS.md) for the summary.
 
 ---
 
@@ -92,6 +92,18 @@ against their ~48%, and 11.1% by >1.0 against their ~13%. If a change to
 `build_sample.py` moves these, the change is wrong.
 
 ## Results so far
+
+### Model comparison (cluster-weighted, 168 unique assay pairs)
+
+| Model | Lab | Arm A bacc | Arm B bacc | Arm A fm | Arm B fm | Δ fm | McNemar p |
+|---|---|---|---|---|---|---|---|
+| Claude Opus 4-6 (temp=0) | Anthropic | 0.490 | 0.558 | 0.694 | **0.795** | +0.100 | 0.525 |
+| Claude Opus 4-6 (default) | Anthropic | 0.461 | 0.556 | 0.708 | **0.789** | +0.081 | 0.137 |
+| GPT-5.6-Sol | OpenAI | 0.514 | 0.583 | 0.267 | **0.722** | **+0.455** | 0.090 |
+
+**fm** = false-merge rate. All McNemar p > 0.05. Both models increase false-merge with descriptions despite opposite starting priors. Full analysis: [FINDINGS.md](results/FINDINGS.md) · [MODEL_COMPARISON.md](results/MODEL_COMPARISON.md) · [GPT_FLIPS.md](results/GPT_FLIPS.md) · [GPT_FLIPS_SIMILARITY.md](results/GPT_FLIPS_SIMILARITY.md).
+
+---
 
 ### Baselines: how much headroom is there?
 
@@ -242,11 +254,12 @@ the methodological difference and then invokes a generic prior to dismiss it.
 Only 1 of 10 cases (p076, HIV integrase with identical descriptions) is a genuine
 information gap.
 
-**Single-model caveat.** All Arm B results are from claude-opus-4-6. A second
-model (GPT) is required before this supports any claim about frontier models in
-general. The OPENAI_API_KEY was not available in this run environment. GPT results
-will be added when the key is provided; until then, treat all findings as
-single-model observations that may or may not generalise.
+**Multi-model replication.** GPT-5.6-Sol (OpenAI) was subsequently evaluated on
+both arms. The description-induced false-merge increase is shared by both models,
+despite opposite Arm A priors. See [FINDINGS.md](results/FINDINGS.md) and
+[MODEL_COMPARISON.md](results/MODEL_COMPARISON.md) for the full comparison.
+GPT flip analysis with mechanism breakdown: [GPT_FLIPS.md](results/GPT_FLIPS.md).
+Description similarity analysis: [GPT_FLIPS_SIMILARITY.md](results/GPT_FLIPS_SIMILARITY.md).
 
 ## Layout
 
@@ -301,11 +314,11 @@ loader is added; BRENDA enzyme kinetics is the intended contrast, since the
 method should transfer to any domain where the same quantity is measured
 repeatedly under varying protocols.
 
-**Single-model results.** All Arm A and Arm B runs are claude-opus-4-6 only.
-A second model (GPT) is needed before any of this supports a general frontier-model
-claim. The OPENAI_API_KEY was not available during the initial run; add it and
-rerun `src/run_arm.py` for both arms to unlock the cross-model comparison.
-This is the biggest open gap in the current results.
+**Two model families.** The pilot covers Anthropic (Claude Opus 4-6) and OpenAI
+(GPT-5.6-Sol) with one within-model replication (Claude at two temperature
+settings). Two families cannot distinguish a pattern from a coincidence; a third
+family is the natural next step. `src/run_arm.py` uses a provider registry;
+adding a new model is two config lines and an API key.
 
 The method does not extend to categorical labels such as gene function or
 variant pathogenicity. Those have no delta, so ground truth stops being free,
