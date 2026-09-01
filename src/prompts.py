@@ -147,12 +147,16 @@ Respond with exactly this JSON and nothing else:
 # the task vocabulary, not leaked ground truth.
 FORBIDDEN_FLOAT_KEYS = ("p_a", "p_b", "delta")
 
-# SCHEMA contains "within 0.3 log units" and "more than 1.0 log units".
-# Delta values close to those thresholds round to "0.3" or "1.0" at 1dp,
-# producing false positives. We skip 1dp for delta only; p_a / p_b values
-# (typically 4–11 pchembl) don't coincide with any fixed prompt text.
-_DELTA_ROUNDINGS = (2, 3, 4)
-_PA_PB_ROUNDINGS = (1, 2, 3, 4)
+# Two classes of 1dp false positives — both excluded:
+#
+# delta:  SCHEMA embeds "within 0.3 log units" and "more than 1.0 log units".
+#         Delta values near those thresholds round to "0.3" / "1.0" at 1dp.
+#
+# p_a/p_b: pchembl values in 6.5–8.5 coincide with "pH 7.4" buffer conditions
+#           that appear throughout ChEMBL assay descriptions.
+#           2dp is sufficient to detect any genuine IC50 value in text.
+_DELTA_ROUNDINGS  = (2, 3, 4)
+_PA_PB_ROUNDINGS  = (2, 3, 4)
 
 
 def assert_clean(prompt, item):

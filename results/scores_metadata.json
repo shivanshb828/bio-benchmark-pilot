@@ -1,0 +1,21 @@
+[
+ {
+  "arm": "metadata",
+  "model": "claude",
+  "n": 195,
+  "balanced_accuracy": 0.4989473684210526,
+  "ci": [
+   0.44450873132758256,
+   0.5494002525252525
+  ],
+  "balanced_accuracy_committed": 0.5398550724637681,
+  "ci_committed": [
+   0.491421568627451,
+   0.5915790745439169
+  ],
+  "n_committed": 182,
+  "false_merge": 0.7894736842105263,
+  "false_split": 0.08,
+  "abstention": 0.06666666666666667
+ }
+]
