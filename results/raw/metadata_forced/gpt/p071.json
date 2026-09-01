@@ -1,0 +1,13 @@
+{
+ "id": "p071",
+ "arm": "metadata_forced",
+ "model": "gpt-5.6-sol",
+ "prompt": "A single compound was assayed by IC50 against a single protein target in two different assays, reported in the literature.\n\nCompound SMILES: Cc1sc2c(c1C)C(c1ccc(Cl)cc1)=N[C@@H](CC(=O)OC(C)(C)C)c1nnc(C)n1-2\nTarget (ChEMBL): CHEMBL1163125\n\nAssay A:\n  Description: Inhibition of His-FLAG-tagged BRD4 binding domain1 (unknown origin) binding to H4-TetraAc-biotin peptide after 20 mins by AlphaLISA\n  Assay type: B\n  ChEMBL confidence score: 9\n  Organism: Homo sapiens\n\nAssay B:\n  Description: Binding affinity to human BRD4 BD1 (44 to 168 residues) by fluorescence polarization assay\n  Assay type: B\n  ChEMBL confidence score: 9\n  Organism: Homo sapiens\n\nWill the two reported IC50 values agree closely (within 0.3 log units), or differ substantially (more than 1.0 log units)?\n\nRespond with exactly this JSON and nothing else:\n{\"call\": \"COMMENSURABLE\" | \"NOT_COMMENSURABLE\",\n \"confidence\": <float 0-1>,\n \"error_class\": \"assay_method\" | \"buffer_conditions\" | \"construct_mutant\" | \"organism\" | \"readout_type\" | \"potency_range\" | \"none\" | \"other\",\n \"reason\": \"<one sentence>\"}\n\n\"COMMENSURABLE\" means you expect the two reported values to agree closely.\n\"NOT_COMMENSURABLE\" means you expect them to differ substantially.\nerror_class is your primary reason for a NOT_COMMENSURABLE call, else \"none\".\nINSUFFICIENT_INFO is not a valid response. You must commit to COMMENSURABLE or NOT_COMMENSURABLE.\nIf you lack direct evidence, make your best guess based on compound structure and target identity.",
+ "raw": "{\"call\":\"COMMENSURABLE\",\"confidence\":0.72,\"error_class\":\"none\",\"reason\":\"Both assays measure competitive binding of the same compound to human BRD4 BD1 using comparable peptide-displacement formats, so a greater-than-tenfold potency difference is unlikely.\"}",
+ "parsed": {
+  "call": "COMMENSURABLE",
+  "confidence": 0.72,
+  "error_class": "none",
+  "reason": "Both assays measure competitive binding of the same compound to human BRD4 BD1 using comparable peptide-displacement formats, so a greater-than-tenfold potency difference is unlikely."
+ }
+}

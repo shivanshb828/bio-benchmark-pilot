@@ -1,0 +1,12 @@
+{
+ "id": "p005",
+ "probe": "id",
+ "model": "claude-opus-4-6",
+ "prompt": "You are given the SMILES string of a chemical compound. If you recognize this compound and know a common name for it, return that name. If you do not recognize it or are uncertain, return null.\n\nCompound SMILES: CC(C)C[C@H](NC(=O)[C@H](CC(N)=O)NC(=O)[C@@H](NC(=O)[C@@H](N)CCC(=O)O)C(C)C)[C@@H](O)C[C@@H](C)C(=O)N[C@@H](C)C(=O)N[C@@H](CCC(=O)O)C(=O)N[C@@H](Cc1ccccc1)C(=O)O\n\nRespond with exactly this JSON and nothing else:\n{\"name\": \"<common name, IUPAC name, or trade name \u2014 or null>\", \"recognized\": true|false, \"confidence\": <float 0-1>}",
+ "raw": "Looking at this peptide structure, I need to trace through the amino acid sequence.\n\nReading through the SMILES, I can identify the following amino acid residues connected by peptide bonds:\n\n1. Glu (glutamic acid) - N-terminal, with CCC(=O)O side chain\n2. Val (valine) - C(C)C side chain\n3. Asn (asparagine) - CC(N)=O side chain\n4. Leu (leucine) - CC(C)C side chain, with a \u03b2-hydroxy modification\n5. Ala (alanine)\n6. Glu (glutamic acid)\n7. Phe (phenylalanine) - C-terminal\n\nWait, let me look more carefully. The fourth residue has `[C@H](NC(=O)...)[C@@H](O)C[C@@H](C)C(=O)N` - this looks like it could be a statine residue (4-amino-3-hydroxy-6-methylheptanoic acid), which is characteristic of pepstatin.\n\nLet me reconsider the full sequence: Glu-Val-Asn-Sta-Ala-Glu-Phe... but pepstatin is typically Iva-Val-Val-Sta-Ala-Sta (isovaleryl-Val-Val-Statine-Ala-Statine).\n\nThis doesn't match pepstatin. Let me re-examine - this appears to be a specific peptide but the sequence Glu-Val-Asn-Sta-Ala-Glu-Phe doesn't correspond to a well-known named peptide that I can confidently identify.\n\nThis could be a renin inhibitor substrate analog or similar, but I'm not confident enough to assign a specific name.\n\n{\"name\": null, \"recognized\": false, \"confidence\": 0.2}",
+ "parsed": {
+  "name": null,
+  "recognized": false,
+  "confidence": 0.2
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "id": "p103",
+ "arm": "metadata",
+ "model": "claude-opus-4-6",
+ "prompt": "A single compound was assayed by IC50 against a single protein target in two different assays, reported in the literature.\n\nCompound SMILES: Cc1ccc(C(=O)NC2CC2)cc1NC(=O)c1ccc(-c2ccccc2Cl)s1\nTarget (ChEMBL): CHEMBL260\n\nAssay A:\n  Description: Inhibition of human p38alpha expressed in Escherichia coli using MBP as substrate preincubated for 10 mins prior to substrate addition measured after 45 mins by microbeta scintillation counting analysis\n  Assay type: B\n  ChEMBL confidence score: 9\n  Organism: Homo sapiens\n\nAssay B:\n  Description: Inhibition of recombinant human His-tagged P38 alpha MAPK (1 to 360 residues) expressed in Escherichia coli incubated for 60 mins by [gamma-33P]ATP based scintillation counting method\n  Assay type: B\n  ChEMBL confidence score: 9\n  Organism: Homo sapiens\n\nWill the two reported IC50 values agree closely (within 0.3 log units), or differ substantially (more than 1.0 log units)?\n\nRespond with exactly this JSON and nothing else:\n{\"call\": \"COMMENSURABLE\" | \"NOT_COMMENSURABLE\" | \"INSUFFICIENT_INFO\",\n \"confidence\": <float 0-1>,\n \"error_class\": \"assay_method\" | \"buffer_conditions\" | \"construct_mutant\" | \"organism\" | \"readout_type\" | \"potency_range\" | \"none\" | \"other\",\n \"reason\": \"<one sentence>\"}\n\n\"COMMENSURABLE\" means you expect the two reported values to agree closely.\n\"NOT_COMMENSURABLE\" means you expect them to differ substantially.\nerror_class is your primary reason for a NOT_COMMENSURABLE call, else \"none\".",
+ "raw": "{\"call\": \"COMMENSURABLE\", \"confidence\": 0.62, \"error_class\": \"none\", \"reason\": \"Both assays measure IC50 of the same compound against human p38\u03b1 MAPK expressed in E. coli using radiometric scintillation counting with similar biochemical formats, and despite minor differences in construct (His-tagged truncation vs full-length) and incubation times, these are unlikely to cause >0.3 log unit differences for a kinase inhibitor IC50.\"}",
+ "parsed": {
+  "call": "COMMENSURABLE",
+  "confidence": 0.62,
+  "error_class": "none",
+  "reason": "Both assays measure IC50 of the same compound against human p38\u03b1 MAPK expressed in E. coli using radiometric scintillation counting with similar biochemical formats, and despite minor differences in construct (His-tagged truncation vs full-length) and incubation times, these are unlikely to cause >0.3 log unit differences for a kinase inhibitor IC50."
+ }
+}

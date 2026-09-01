@@ -1,0 +1,12 @@
+{
+ "id": "p188",
+ "probe": "id",
+ "model": "claude-opus-4-6",
+ "prompt": "You are given the SMILES string of a chemical compound. If you recognize this compound and know a common name for it, return that name. If you do not recognize it or are uncertain, return null.\n\nCompound SMILES: Fc1ccc(C(OCCN2CCN(CCCc3ccccc3)CC2)c2ccc(F)cc2)cc1\n\nRespond with exactly this JSON and nothing else:\n{\"name\": \"<common name, IUPAC name, or trade name \u2014 or null>\", \"recognized\": true|false, \"confidence\": <float 0-1>}",
+ "raw": "{\"name\": \"GBR 12909\", \"recognized\": true, \"confidence\": 0.85}",
+ "parsed": {
+  "name": "GBR 12909",
+  "recognized": true,
+  "confidence": 0.85
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "id": "p154",
+ "probe": "id",
+ "model": "claude-opus-4-6",
+ "prompt": "You are given the SMILES string of a chemical compound. If you recognize this compound and know a common name for it, return that name. If you do not recognize it or are uncertain, return null.\n\nCompound SMILES: Cc1ccnc2c1NC(=O)c1cccnc1N2C1CC1\n\nRespond with exactly this JSON and nothing else:\n{\"name\": \"<common name, IUPAC name, or trade name \u2014 or null>\", \"recognized\": true|false, \"confidence\": <float 0-1>}",
+ "raw": "{\"name\": \"niraparib\", \"recognized\": true, \"confidence\": 0.35}\n\nWait, let me reconsider. Let me analyze the SMILES more carefully.\n\n`Cc1ccnc2c1NC(=O)c1cccnc1N2C1CC1`\n\nThis has:\n- A methylpyridine fused ring\n- An amide C(=O)\n- Another pyridine ring\n- A cyclopropyl group (C1CC1)\n- It appears to be a fused bicyclic system with two pyridine rings\n\nThis looks like it could be a naphthyridine-based structure. Let me reconsider - this doesn't match niraparib (which has a different structure with a piperidine and aminobenzamide).\n\nThis structure appears to be a cyclopropyl-substituted pyrido-naphthyridinone. This could be related to some kinase inhibitor.\n\n{\"name\": null, \"recognized\": false, \"confidence\": 0.2}",
+ "parsed": {
+  "_parse_error": "{\"name\": \"niraparib\", \"recognized\": true, \"confidence\": 0.35}\n\nWait, let me reconsider. Let me analyze the SMILES more carefully.\n\n`Cc1ccnc2c1NC(=O)c1cccnc1N2C1CC1`\n\nThis has:\n- A methylpyridine fused ring\n- An amide C(=O)\n- Another pyridine ring\n- A cyclopropyl group (C1CC1)\n- It appears to be a fused bicyclic system with two pyridine rings\n\nThis looks like it could be a naphthyridine-based struc"
+ }
+}

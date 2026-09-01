@@ -1,0 +1,12 @@
+{
+ "id": "p077",
+ "probe": "id",
+ "model": "claude-opus-4-6",
+ "prompt": "You are given the SMILES string of a chemical compound. If you recognize this compound and know a common name for it, return that name. If you do not recognize it or are uncertain, return null.\n\nCompound SMILES: CCCCCOCCCCNC(=O)NC12CC3CC(CC(C3)C1)C2\n\nRespond with exactly this JSON and nothing else:\n{\"name\": \"<common name, IUPAC name, or trade name \u2014 or null>\", \"recognized\": true|false, \"confidence\": <float 0-1>}",
+ "raw": "I need to analyze this SMILES string: CCCCCOCCCCNC(=O)NC12CC3CC(CC(C3)C1)C2\n\nLet me break it down:\n- CCCCCOCCCCNC(=O) - a pentyloxy-butyl chain connected to a urea group\n- NC12CC3CC(CC(C3)C1)C2 - this is an adamantane (1-adamantyl) amine\n\nSo the structure is: 1-(4-(pentyloxy)butyl)-3-(1-adamantyl)urea\n\nThis doesn't match any well-known drug or common compound that I can confidently identify by a common name. It resembles soluble epoxide hydrolase (sEH) inhibitors, which often have an adamantyl-urea pharmacophore. One well-known sEH inhibitor is AUDA (12-(3-adamantan-1-yl-ureido)dodecanoic acid), but this compound has an ether linkage and no carboxylic acid.\n\nWait - let me reconsider. AUDA analogs include compounds like AEPU or APAU. Let me think about this more carefully.\n\nThe compound is 1-(1-adamantyl)-3-(4-(pentyloxy)butyl)urea. This is actually a known sEH inhibitor. Looking at the structure more carefully - 4-(pentyloxy)butyl = a butyl chain with a pentyloxy group. This doesn't exactly match commonly named sEH inhibitors I know (like t-AUCB, TPPU, etc.).\n\nI'm not confident enough to assign a specific common name to this compound.\n\n```json\n{\"name\": null, \"recognized\": false, \"confidence\": 0.2}\n```",
+ "parsed": {
+  "name": null,
+  "recognized": false,
+  "confidence": 0.2
+ }
+}

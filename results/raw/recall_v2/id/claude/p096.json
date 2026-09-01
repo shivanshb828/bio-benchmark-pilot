@@ -1,0 +1,12 @@
+{
+ "id": "p096",
+ "probe": "id",
+ "model": "claude-opus-4-6",
+ "prompt": "You are given the SMILES string of a chemical compound. If you recognize this compound and know a common name for it, return that name. If you do not recognize it or are uncertain, return null.\n\nCompound SMILES: O=C(NCc1ccc(C(F)(F)F)cc1)Nc1cccc2cnccc12\n\nRespond with exactly this JSON and nothing else:\n{\"name\": \"<common name, IUPAC name, or trade name \u2014 or null>\", \"recognized\": true|false, \"confidence\": <float 0-1>}",
+ "raw": "Looking at the SMILES structure:\n\n- There's a urea linkage (-NHC(=O)NH-)\n- One side has a 4-(trifluoromethyl)benzyl group\n- The other side has a 1,6-naphthyridine or isoquinoline-like bicyclic system\n\nLet me analyze the bicyclic part more carefully: `c1cccc2cnccc12` \u2014 this is an isoquinoline ring system (specifically, the nitrogen is at position 2 of the fused ring, making it isoquinoline).\n\nSo the compound is 1-(4-(trifluoromethyl)benzyl)-3-(isoquinolin-5-yl)urea or similar. This doesn't correspond to a widely known drug or common compound that I can confidently name.\n\n{\"name\": null, \"recognized\": false, \"confidence\": 0.2}",
+ "parsed": {
+  "name": null,
+  "recognized": false,
+  "confidence": 0.2
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "id": "p001",
+ "arm": "metadata",
+ "model": "gpt-5.6-sol",
+ "prompt": "A single compound was assayed by IC50 against a single protein target in two different assays, reported in the literature.\n\nCompound SMILES: COC[C@H]1OC(=O)c2coc3c2[C@@]1(C)C1=C(C3=O)[C@@H]2CCC(=O)[C@@]2(C)C[C@H]1OC(C)=O\nTarget (ChEMBL): CHEMBL3267\n\nAssay A:\n  Description: Inhibition of PI3Kgamma (unknown origin) assessed as decrease in fluorescence intensity using phosphorylated substrate\n  Assay type: B\n  ChEMBL confidence score: 9\n  Organism: Homo sapiens\n\nAssay B:\n  Description: Inhibition of human PI3Kgamma\n  Assay type: B\n  ChEMBL confidence score: 9\n  Organism: Homo sapiens\n\nWill the two reported IC50 values agree closely (within 0.3 log units), or differ substantially (more than 1.0 log units)?\n\nRespond with exactly this JSON and nothing else:\n{\"call\": \"COMMENSURABLE\" | \"NOT_COMMENSURABLE\" | \"INSUFFICIENT_INFO\",\n \"confidence\": <float 0-1>,\n \"error_class\": \"assay_method\" | \"buffer_conditions\" | \"construct_mutant\" | \"organism\" | \"readout_type\" | \"potency_range\" | \"none\" | \"other\",\n \"reason\": \"<one sentence>\"}\n\n\"COMMENSURABLE\" means you expect the two reported values to agree closely.\n\"NOT_COMMENSURABLE\" means you expect them to differ substantially.\nerror_class is your primary reason for a NOT_COMMENSURABLE call, else \"none\".",
+ "raw": "{\"call\":\"INSUFFICIENT_INFO\",\"confidence\":0.86,\"error_class\":\"none\",\"reason\":\"Both assays target human PI3Kgamma, but Assay B lacks method, construct, substrate, and buffer details needed to predict agreement within the specified thresholds.\"}",
+ "parsed": {
+  "call": "INSUFFICIENT_INFO",
+  "confidence": 0.86,
+  "error_class": "none",
+  "reason": "Both assays target human PI3Kgamma, but Assay B lacks method, construct, substrate, and buffer details needed to predict agreement within the specified thresholds."
+ }
+}

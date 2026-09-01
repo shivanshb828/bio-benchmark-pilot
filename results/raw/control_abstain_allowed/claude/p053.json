@@ -1,0 +1,13 @@
+{
+ "id": "p053",
+ "arm": "control",
+ "model": "claude-opus-4-6",
+ "prompt": "A single compound was assayed by IC50 against a single protein target in two different assays, reported in the literature.\n\nCompound SMILES: Br.COc1ccc2c3c1O[C@H]1C[C@@H](O)C=C[C@@]31CCN(C)C2\nTarget (ChEMBL): CHEMBL4078\n\nYou are given no information about either assay protocol.\n\nWill the two reported IC50 values agree closely (within 0.3 log units), or differ substantially (more than 1.0 log units)?\n\nRespond with exactly this JSON and nothing else:\n{\"call\": \"COMMENSURABLE\" | \"NOT_COMMENSURABLE\" | \"INSUFFICIENT_INFO\",\n \"confidence\": <float 0-1>,\n \"error_class\": \"assay_method\" | \"buffer_conditions\" | \"construct_mutant\" | \"organism\" | \"readout_type\" | \"potency_range\" | \"none\" | \"other\",\n \"reason\": \"<one sentence>\"}\n\n\"COMMENSURABLE\" means you expect the two reported values to agree closely.\n\"NOT_COMMENSURABLE\" means you expect them to differ substantially.\nerror_class is your primary reason for a NOT_COMMENSURABLE call, else \"none\".",
+ "raw": "{\"call\": \"INSUFFICIENT_INFO\", \"confidence\": 0.45, \"error_class\": \"none\", \"reason\": \"The compound is morphine (as its HBr salt) and CHEMBL4078 is the mu-opioid receptor; without knowing the specific assay formats (binding vs functional, cell type, radioligand used, etc.), there is insufficient information to judge whether two independently reported IC50 values would agree within 0.3 log units or differ by more than 1.0 log units.\"}",
+ "parsed": {
+  "call": "INSUFFICIENT_INFO",
+  "confidence": 0.45,
+  "error_class": "none",
+  "reason": "The compound is morphine (as its HBr salt) and CHEMBL4078 is the mu-opioid receptor; without knowing the specific assay formats (binding vs functional, cell type, radioligand used, etc.), there is insufficient information to judge whether two independently reported IC50 values would agree within 0.3 log units or differ by more than 1.0 log units."
+ }
+}

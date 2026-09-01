@@ -1,0 +1,12 @@
+{
+ "id": "p052",
+ "probe": "id",
+ "model": "claude-opus-4-6",
+ "prompt": "You are given the SMILES string of a chemical compound. If you recognize this compound and know a common name for it, return that name. If you do not recognize it or are uncertain, return null.\n\nCompound SMILES: Oc1cccc(-c2nc(N3CCOCC3)c3oc4ncccc4c3n2)c1\n\nRespond with exactly this JSON and nothing else:\n{\"name\": \"<common name, IUPAC name, or trade name \u2014 or null>\", \"recognized\": true|false, \"confidence\": <float 0-1>}",
+ "raw": "Looking at the SMILES structure: `Oc1cccc(-c2nc(N3CCOCC3)c3oc4ncccc4c3n2)c1`\n\nLet me parse this:\n- A 3-hydroxyphenyl group\n- Connected to a bicyclic system containing a pyrimidine fused with a furan\n- A morpholine substituent (N3CCOCC3)\n- A fused pyridine ring\n\nThis appears to be a compound with a pyrido-fused oxazolo-pyrimidine core. This structure matches **PI3K inhibitors** in the morpholino-pyrimidine class. Specifically, this looks like it could be related to compounds in the PI3K inhibitor family.\n\nAfter careful analysis, this compound resembles a known kinase inhibitor but I'm not confident enough to assign a specific common name with certainty.\n\n```json\n{\"name\": null, \"recognized\": false, \"confidence\": 0.2}\n```",
+ "parsed": {
+  "name": null,
+  "recognized": false,
+  "confidence": 0.2
+ }
+}

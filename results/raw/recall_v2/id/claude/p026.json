@@ -1,0 +1,12 @@
+{
+ "id": "p026",
+ "probe": "id",
+ "model": "claude-opus-4-6",
+ "prompt": "You are given the SMILES string of a chemical compound. If you recognize this compound and know a common name for it, return that name. If you do not recognize it or are uncertain, return null.\n\nCompound SMILES: COc1ccc(-c2cc3c(NC(=O)C4CCCC4)ncnc3o2)cc1\n\nRespond with exactly this JSON and nothing else:\n{\"name\": \"<common name, IUPAC name, or trade name \u2014 or null>\", \"recognized\": true|false, \"confidence\": <float 0-1>}",
+ "raw": "Looking at the SMILES structure: `COc1ccc(-c2cc3c(NC(=O)C4CCCC4)ncnc3o2)cc1`\n\nLet me parse this:\n- There's a methoxyphenyl group\n- Connected to a benzofuran-like fused ring system containing a pyrimidine (ncnc) fused with an oxazole/furan\n- An amide substituent with a cyclopentane carbonyl group\n\nThis appears to be a substituted oxazolo[5,4-d]pyrimidine or similar fused heterocyclic system. The compound has features consistent with kinase inhibitors.\n\nThis structure matches **N-(2-(4-methoxyphenyl)furo[3,2-d]pyrimidin-4-yl)cyclopentanecarboxamide**, but I'm not confident it has a widely recognized common/trade name.\n\n```json\n{\"name\": null, \"recognized\": false, \"confidence\": 0.25}\n```",
+ "parsed": {
+  "name": null,
+  "recognized": false,
+  "confidence": 0.25
+ }
+}

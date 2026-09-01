@@ -34,7 +34,8 @@ import urllib.request, urllib.error
 
 from .config import RESULTS, RAW, MODELS, PROVIDER_ENDPOINTS
 from .prompts import (SYSTEM, control_prompt, control_prompt_forced,
-                      metadata_prompt, recall_prompt, assert_clean)
+                      metadata_prompt, metadata_prompt_forced,
+                      recall_prompt, assert_clean)
 
 # ── provider implementations ─────────────────────────────────────────────────
 
@@ -169,7 +170,8 @@ def _call_with_rate_limit(caller, model, system, prompt, temp, retries, item_id)
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--arm", required=True,
-                    choices=["control", "control_forced", "metadata", "recall"])
+                    choices=["control", "control_forced",
+                             "metadata", "metadata_forced", "recall"])
     ap.add_argument("--model", required=True, choices=list(MODELS))
     ap.add_argument("--limit",   type=int,   default=None)
     ap.add_argument("--retries", type=int,   default=3)
@@ -192,7 +194,7 @@ def main():
     items  = sample["items"][: a.limit]
 
     meta = {}
-    if a.arm == "metadata":
+    if a.arm in ("metadata", "metadata_forced"):
         p = RESULTS / "assay_metadata.json"
         if not p.exists():
             sys.exit("assay_metadata.json missing. Run src.fetch_metadata first.")
@@ -202,10 +204,11 @@ def main():
     outdir.mkdir(parents=True, exist_ok=True)
 
     builders = {
-        "control":        lambda it: control_prompt(it),
-        "control_forced": lambda it: control_prompt_forced(it),
-        "metadata":       lambda it: metadata_prompt(it, meta),
-        "recall":         lambda it: recall_prompt(it),
+        "control":         lambda it: control_prompt(it),
+        "control_forced":  lambda it: control_prompt_forced(it),
+        "metadata":        lambda it: metadata_prompt(it, meta),
+        "metadata_forced": lambda it: metadata_prompt_forced(it, meta),
+        "recall":          lambda it: recall_prompt(it),
     }
 
     # ── dry-run ──────────────────────────────────────────────────────────────

@@ -1,0 +1,12 @@
+{
+ "id": "p119",
+ "probe": "id",
+ "model": "claude-opus-4-6",
+ "prompt": "You are given the SMILES string of a chemical compound. If you recognize this compound and know a common name for it, return that name. If you do not recognize it or are uncertain, return null.\n\nCompound SMILES: CNC[C@@H]1OCc2ccccc2[C@@H]1Oc1c(C)cccc1F\n\nRespond with exactly this JSON and nothing else:\n{\"name\": \"<common name, IUPAC name, or trade name \u2014 or null>\", \"recognized\": true|false, \"confidence\": <float 0-1>}",
+ "raw": "Based on the SMILES structure, this compound appears to be related to a class of isochroman derivatives. Let me analyze it more carefully:\n\nThe structure contains an isochroman scaffold with a methylamino methyl group, and an aryloxy substituent (2-fluoro-6-methylphenoxy). This matches the structure of **nebivolol** \u2014 actually, no. Let me reconsider.\n\nLooking more carefully at the structure: it's an isochroman with an NHMe group and a 2-fluoro-6-methylphenoxy substituent. This doesn't match nebivolol (which has fluorochromanol units).\n\nThis structure resembles compounds in the beta-blocker or related pharmacological space, but I'm not confident in assigning a specific common name.\n\n```json\n{\"name\": null, \"recognized\": false, \"confidence\": 0.2}\n```",
+ "parsed": {
+  "name": null,
+  "recognized": false,
+  "confidence": 0.2
+ }
+}

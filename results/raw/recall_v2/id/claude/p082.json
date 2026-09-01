@@ -1,0 +1,12 @@
+{
+ "id": "p082",
+ "probe": "id",
+ "model": "claude-opus-4-6",
+ "prompt": "You are given the SMILES string of a chemical compound. If you recognize this compound and know a common name for it, return that name. If you do not recognize it or are uncertain, return null.\n\nCompound SMILES: O=C(NC1CCCCC1)NC12CC3CC(CC(C3)C1)C2\n\nRespond with exactly this JSON and nothing else:\n{\"name\": \"<common name, IUPAC name, or trade name \u2014 or null>\", \"recognized\": true|false, \"confidence\": <float 0-1>}",
+ "raw": "Looking at this SMILES: `O=C(NC1CCCCC1)NC12CC3CC(CC(C3)C1)C2`\n\nLet me parse this structure:\n- There's a urea group `O=C(N...)(N...)`\n- One nitrogen is attached to cyclohexyl (`NC1CCCCC1`)\n- The other nitrogen is attached to an adamantyl group (`NC12CC3CC(CC(C3)C1)C2`)\n\nThis is **1-(1-adamantyl)-3-cyclohexylurea**, also known as **N-(1-adamantyl)-N'-cyclohexylurea**.\n\nThis compound is known in the literature as a soluble epoxide hydrolase (sEH) inhibitor and is sometimes referred to as **ACU** (1-adamantyl-3-cyclohexylurea).\n\n```json\n{\"name\": \"1-(1-adamantyl)-3-cyclohexylurea\", \"recognized\": true, \"confidence\": 0.95}\n```",
+ "parsed": {
+  "name": "1-(1-adamantyl)-3-cyclohexylurea",
+  "recognized": true,
+  "confidence": 0.95
+ }
+}

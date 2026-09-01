@@ -1,0 +1,13 @@
+{
+ "id": "p113",
+ "arm": "metadata",
+ "model": "claude-opus-4-6",
+ "prompt": "A single compound was assayed by IC50 against a single protein target in two different assays, reported in the literature.\n\nCompound SMILES: CS(=O)(=O)CCNCc1ccc(-c2ccc3ncnc(Nc4ccc(OCc5cccc(F)c5)c(Cl)c4)c3c2)o1\nTarget (ChEMBL): CHEMBL203\n\nAssay A:\n  Description: Inhibition of epidermal growth factor receptor kinase (unknown origin) using [33P]-ATP after 20 to 30 mins by radiometric assay\n  Assay type: B\n  ChEMBL confidence score: 9\n  Organism: Homo sapiens\n\nAssay B:\n  Description: Inhibition of His-tagged EGFR cytoplasmic domain (645-1186 aa) (unknown origin) assessed as inhibition of autophosphorylation by TR-fluorometry\n  Assay type: B\n  ChEMBL confidence score: 9\n  Organism: Homo sapiens\n\nWill the two reported IC50 values agree closely (within 0.3 log units), or differ substantially (more than 1.0 log units)?\n\nRespond with exactly this JSON and nothing else:\n{\"call\": \"COMMENSURABLE\" | \"NOT_COMMENSURABLE\" | \"INSUFFICIENT_INFO\",\n \"confidence\": <float 0-1>,\n \"error_class\": \"assay_method\" | \"buffer_conditions\" | \"construct_mutant\" | \"organism\" | \"readout_type\" | \"potency_range\" | \"none\" | \"other\",\n \"reason\": \"<one sentence>\"}\n\n\"COMMENSURABLE\" means you expect the two reported values to agree closely.\n\"NOT_COMMENSURABLE\" means you expect them to differ substantially.\nerror_class is your primary reason for a NOT_COMMENSURABLE call, else \"none\".",
+ "raw": "{\"call\": \"COMMENSURABLE\", \"confidence\": 0.55, \"error_class\": \"none\", \"reason\": \"Both assays measure IC50 for EGFR kinase inhibition using biochemical formats with high confidence scores and the same organism, and although the detection methods differ (radiometric vs TR-fluorometry) and the constructs differ slightly (full kinase domain vs cytoplasmic domain 645-1186), both are standard EGFR enzymatic assays that typically yield comparable potency values for reversible inhibitors.\"}",
+ "parsed": {
+  "call": "COMMENSURABLE",
+  "confidence": 0.55,
+  "error_class": "none",
+  "reason": "Both assays measure IC50 for EGFR kinase inhibition using biochemical formats with high confidence scores and the same organism, and although the detection methods differ (radiometric vs TR-fluorometry) and the constructs differ slightly (full kinase domain vs cytoplasmic domain 645-1186), both are standard EGFR enzymatic assays that typically yield comparable potency values for reversible inhibitors."
+ }
+}

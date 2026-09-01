@@ -1,0 +1,12 @@
+{
+ "id": "p043",
+ "probe": "potency",
+ "model": "claude-opus-4-6",
+ "prompt": "You are given a chemical compound and a protein target. If you know of a specific IC50 value reported for this compound against this target in the literature or a public database (e.g. ChEMBL, BindingDB), state the value in nM. If you do not know a specific reported value, return null.\n\nCompound SMILES: CS(=O)(=O)N1CCC[C@H](Nc2nc(N)ncc2-c2cnc3[nH]ccc3n2)C1\nTarget (ChEMBL): CHEMBL2148\nTarget name: Tyrosine-protein kinase JAK3\n\nRespond with exactly this JSON and nothing else:\n{\"value_nM\": <float or null>, \"known\": true|false, \"confidence\": <float 0-1>}",
+ "raw": "{\"value_nM\": null, \"known\": false, \"confidence\": 0.2}",
+ "parsed": {
+  "value_nM": null,
+  "known": false,
+  "confidence": 0.2
+ }
+}

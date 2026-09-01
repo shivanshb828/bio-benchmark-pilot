@@ -46,7 +46,7 @@ from pathlib import Path
 
 import pytest
 
-from src.prompts import control_prompt, metadata_prompt
+from src.prompts import control_prompt, metadata_prompt, metadata_prompt_forced
 
 ROOT   = Path(__file__).resolve().parent.parent
 SAMPLE = ROOT / "results" / "pilot_sample_v0.json"
@@ -206,6 +206,48 @@ def test_metadata_no_direct_leakage_pb(items, meta, item_index):
     assert not hits, (
         f"p_b DIRECT LEAKAGE in metadata_prompt for {item['id']}: {hits}\n"
         f"  p_b={item['p_b']}  assay_b={item['assay_b']}"
+    )
+
+
+@pytest.mark.parametrize("item_index", range(195))
+def test_metadata_forced_no_direct_leakage_pa(items, meta, item_index):
+    """metadata_forced shares the same description body as metadata_prompt.
+    SCHEMA_FORCED differs only in the call-option list, not in numerical values.
+    Checking p_a/p_b at 2-4dp confirms no new leakage surface is introduced.
+    """
+    _require_meta(meta)
+    item = items[item_index]
+    prompt = metadata_prompt_forced(item, meta)
+    hits = _leak_check(prompt, "p_a", item["p_a"], (2, 3, 4))
+    assert not hits, (
+        f"p_a DIRECT LEAKAGE in metadata_prompt_forced for {item['id']}: {hits}"
+    )
+
+
+@pytest.mark.parametrize("item_index", range(195))
+def test_metadata_forced_no_direct_leakage_pb(items, meta, item_index):
+    _require_meta(meta)
+    item = items[item_index]
+    prompt = metadata_prompt_forced(item, meta)
+    hits = _leak_check(prompt, "p_b", item["p_b"], (2, 3, 4))
+    assert not hits, (
+        f"p_b DIRECT LEAKAGE in metadata_prompt_forced for {item['id']}: {hits}"
+    )
+
+
+def test_metadata_forced_indirect_leakage_scan(items, meta):
+    """Indirect scan for metadata_forced — should produce the same exclusion set
+    as metadata (body is identical; only the schema footer differs)."""
+    _require_meta(meta)
+    flagged = []
+    for item in items:
+        prompt = metadata_prompt_forced(item, meta)
+        desc_hits = _scan_descriptions_for_potency(prompt, item)
+        if desc_hits:
+            flagged.append(item["id"])
+    # Just assert — the master exclusion file is written by test_metadata_indirect_leakage_scan
+    assert set(flagged) == {"p122"}, (
+        f"metadata_forced indirect leakage differs from metadata: {flagged}"
     )
 
 

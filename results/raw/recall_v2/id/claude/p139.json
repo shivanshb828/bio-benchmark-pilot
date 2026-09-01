@@ -1,0 +1,12 @@
+{
+ "id": "p139",
+ "probe": "id",
+ "model": "claude-opus-4-6",
+ "prompt": "You are given the SMILES string of a chemical compound. If you recognize this compound and know a common name for it, return that name. If you do not recognize it or are uncertain, return null.\n\nCompound SMILES: CC(=O)N1CCC(NC(=O)NC23CC4CC(CC(C4)C2)C3)CC1\n\nRespond with exactly this JSON and nothing else:\n{\"name\": \"<common name, IUPAC name, or trade name \u2014 or null>\", \"recognized\": true|false, \"confidence\": <float 0-1>}",
+ "raw": "I'll analyze the SMILES structure: `CC(=O)N1CCC(NC(=O)NC23CC4CC(CC(C4)C2)C3)CC1`\n\nBreaking it down:\n- `CC(=O)N1CCC(...)CC1` \u2014 an acetylpiperidine group (1-acetylpiperidin-4-yl)\n- `NC(=O)N` \u2014 a urea linker\n- `C23CC4CC(CC(C4)C2)C3` \u2014 an adamantane (1-adamantyl) group\n\nSo this is 1-(1-acetylpiperidin-4-yl)-3-(1-adamantyl)urea.\n\nThis compound matches **AZD-3514**, a selective androgen receptor downregulator developed by AstraZeneca, but let me reconsider \u2014 AZD-3514 has a more complex structure.\n\nActually, this specific structure is known as a soluble epoxide hydrolase (sEH) inhibitor. The compound 1-(1-adamantyl)-3-(1-acetylpiperidin-4-yl)urea is related to the well-known sEH inhibitor series, but the most famous one is **AUDA** or **t-AUCB**. Let me reconsider.\n\nThe classic sEH inhibitor with adamantyl urea and piperidine is **t-AUCB** (trans-4-[4-(3-adamantan-1-yl-ureido)-cyclohexyloxy]-benzoic acid) \u2014 no, that's different.\n\nThis specific compound doesn't match a widely known drug name with high confidence.\n\n```json\n{\"name\": null, \"recognized\": false, \"confidence\": 0.3}\n```",
+ "parsed": {
+  "name": null,
+  "recognized": false,
+  "confidence": 0.3
+ }
+}
