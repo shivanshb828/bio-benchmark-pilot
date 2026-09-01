@@ -1,0 +1,10 @@
+{
+ "id": "p137",
+ "probe": "id",
+ "model": "claude-opus-4-6",
+ "prompt": "You are given the SMILES string of a chemical compound. If you recognize this compound and know a common name for it, return that name. If you do not recognize it or are uncertain, return null.\n\nCompound SMILES: COc1ccc2nc3c(c(N)c2c1)CCCC3\n\nRespond with exactly this JSON and nothing else:\n{\"name\": \"<common name, IUPAC name, or trade name \u2014 or null>\", \"recognized\": true|false, \"confidence\": <float 0-1>}",
+ "raw": "{\"name\": \"tacrine methoxy analogue\", \"recognized\": false, \"confidence\": 0.25}\n\nWait, let me reconsider this structure more carefully.\n\nThe SMILES `COc1ccc2nc3c(c(N)c2c1)CCCC3` describes a compound with a methoxy group on an aromatic ring fused to a pyridine ring, which is further fused to a cyclohexane ring, with an amino group. This is 6-methoxy-9-amino-1,2,3,4-tetrahydroacridine, also known as 6-methoxytacrine or sometimes referred to in literature related to tacrine derivatives.\n\n{\"name\": \"6-methoxytacrine\", \"recognized\": true, \"confidence\": 0.55}",
+ "parsed": {
+  "_parse_error": "{\"name\": \"tacrine methoxy analogue\", \"recognized\": false, \"confidence\": 0.25}\n\nWait, let me reconsider this structure more carefully.\n\nThe SMILES `COc1ccc2nc3c(c(N)c2c1)CCCC3` describes a compound with a methoxy group on an aromatic ring fused to a pyridine ring, which is further fused to a cyclohexane ring, with an amino group. This is 6-methoxy-9-amino-1,2,3,4-tetrahydroacridine, also known as 6"
+ }
+}

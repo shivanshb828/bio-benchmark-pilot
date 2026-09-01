@@ -1,0 +1,13 @@
+{
+ "id": "p000",
+ "arm": "control_forced",
+ "model": "claude-opus-4-6",
+ "prompt": "A single compound was assayed by IC50 against a single protein target in two different assays, reported in the literature.\n\nCompound SMILES: CC(C)(C)OC(=O)N[C@@H](Cc1ccccc1)[C@@H](O)C[C@@H](Cc1ccccc1)C(=O)N[C@H]1c2ccccc2OC[C@H]1O\nTarget (ChEMBL): CHEMBL243\n\nYou are given no information about either assay protocol.\n\nWill the two reported IC50 values agree closely (within 0.3 log units), or differ substantially (more than 1.0 log units)?\n\nRespond with exactly this JSON and nothing else:\n{\"call\": \"COMMENSURABLE\" | \"NOT_COMMENSURABLE\",\n \"confidence\": <float 0-1>,\n \"error_class\": \"assay_method\" | \"buffer_conditions\" | \"construct_mutant\" | \"organism\" | \"readout_type\" | \"potency_range\" | \"none\" | \"other\",\n \"reason\": \"<one sentence>\"}\n\n\"COMMENSURABLE\" means you expect the two reported values to agree closely.\n\"NOT_COMMENSURABLE\" means you expect them to differ substantially.\nerror_class is your primary reason for a NOT_COMMENSURABLE call, else \"none\".\nINSUFFICIENT_INFO is not a valid response. You must commit to COMMENSURABLE or NOT_COMMENSURABLE.\nIf you lack direct evidence, make your best guess based on compound structure and target identity.",
+ "raw": "{\"call\": \"COMMENSURABLE\", \"confidence\": 0.6, \"error_class\": \"none\", \"reason\": \"The compound is a classic peptidomimetic HIV protease inhibitor (resembling nelfinavir/KNI-type inhibitors) targeting CHEMBL243 (HIV-1 protease), and IC50 assays for HIV protease inhibitors using standard fluorogenic substrate cleavage assays tend to be reasonably reproducible across laboratories, typically agreeing within 0.3 log units for potent, well-characterized compounds.\"}",
+ "parsed": {
+  "call": "COMMENSURABLE",
+  "confidence": 0.6,
+  "error_class": "none",
+  "reason": "The compound is a classic peptidomimetic HIV protease inhibitor (resembling nelfinavir/KNI-type inhibitors) targeting CHEMBL243 (HIV-1 protease), and IC50 assays for HIV protease inhibitors using standard fluorogenic substrate cleavage assays tend to be reasonably reproducible across laboratories, typically agreeing within 0.3 log units for potent, well-characterized compounds."
+ }
+}

@@ -1,0 +1,12 @@
+{
+ "id": "p068",
+ "probe": "potency",
+ "model": "claude-opus-4-6",
+ "prompt": "You are given a chemical compound and a protein target. If you know of a specific IC50 value reported for this compound against this target in the literature or a public database (e.g. ChEMBL, BindingDB), state the value in nM. If you do not know a specific reported value, return null.\n\nCompound SMILES: COc1ccc2c3c1O[C@H]1C[C@@H](O)C=C[C@@]31CCN(C)C2\nTarget (ChEMBL): CHEMBL4078\nTarget name: Acetylcholinesterase\n\nRespond with exactly this JSON and nothing else:\n{\"value_nM\": <float or null>, \"known\": true|false, \"confidence\": <float 0-1>}",
+ "raw": "Based on my knowledge, the compound with SMILES `COc1ccc2c3c1O[C@H]1C[C@@H](O)C=C[C@@]31CCN(C)C2` is **galanthamine** (also known as galantamine), a well-known acetylcholinesterase inhibitor.\n\nGalantamine has been extensively studied and its IC50 against acetylcholinesterase (AChE, CHEMBL4078) is commonly reported in the range of approximately 500-2000 nM, with a frequently cited value around 500 nM (0.5 \u00b5M) depending on the assay conditions. In ChEMBL, multiple measurements exist, with a commonly reported value around 1500-2000 nM for human AChE.\n\n{\"value_nM\": 1800, \"known\": true, \"confidence\": 0.55}",
+ "parsed": {
+  "value_nM": 1800,
+  "known": true,
+  "confidence": 0.55
+ }
+}

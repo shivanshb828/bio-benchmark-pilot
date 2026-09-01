@@ -1,0 +1,11 @@
+{
+ "id": "p011",
+ "arm": "recall",
+ "model": "claude-opus-4-6",
+ "prompt": "What IC50 value was reported for this compound against this target in ChEMBL assay CHEMBL3594611?\n\nCompound SMILES: C[C@]1(c2nc3c(C(N)=O)cccc3[nH]2)CCCN1\nTarget (ChEMBL): CHEMBL3105\n\nIf you genuinely recall the specific reported value, state it in nM. If you do not, say exactly: NO RECALL.\nRespond with JSON: {\"value_nM\": <float or null>, \"recalled\": true|false}",
+ "raw": "{\"value_nM\": null, \"recalled\": false}",
+ "parsed": {
+  "value_nM": null,
+  "recalled": false
+ }
+}

@@ -1,0 +1,12 @@
+{
+ "id": "p010",
+ "probe": "id",
+ "model": "claude-opus-4-6",
+ "prompt": "You are given the SMILES string of a chemical compound. If you recognize this compound and know a common name for it, return that name. If you do not recognize it or are uncertain, return null.\n\nCompound SMILES: CNCc1cc(C(=O)N(C)C)ccc1Oc1ccc(Cl)cc1OC\n\nRespond with exactly this JSON and nothing else:\n{\"name\": \"<common name, IUPAC name, or trade name \u2014 or null>\", \"recognized\": true|false, \"confidence\": <float 0-1>}",
+ "raw": "I need to analyze this SMILES string: `CNCc1cc(C(=O)N(C)C)ccc1Oc1ccc(Cl)cc1OC`\n\nLet me parse the structure:\n- There's a benzene ring with substituents: a CH2NHCH3 group, a C(=O)N(CH3)2 (dimethylamide) group, and an oxygen linking to another ring\n- The second benzene ring has a Cl and an OCH3 substituent\n- The ether linkage connects the two rings\n\nThis structure resembles certain pharmaceutical compounds. Let me think more carefully...\n\nThe core structure has a diphenyl ether with:\n- Ring 1: CH2NHCH3, CON(CH3)2, and O-link\n- Ring 2: Cl, OCH3, and O-link\n\nThis doesn't immediately match a well-known drug I can confidently name. Let me reconsider...\n\nThis could be related to some insecticide or pharmaceutical, but I'm not confident enough to assign a specific common name.\n\n{\"name\": null, \"recognized\": false, \"confidence\": 0.15}",
+ "parsed": {
+  "name": null,
+  "recognized": false,
+  "confidence": 0.15
+ }
+}

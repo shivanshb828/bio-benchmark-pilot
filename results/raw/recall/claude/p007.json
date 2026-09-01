@@ -1,0 +1,11 @@
+{
+ "id": "p007",
+ "arm": "recall",
+ "model": "claude-opus-4-6",
+ "prompt": "What IC50 value was reported for this compound against this target in ChEMBL assay CHEMBL2343889?\n\nCompound SMILES: CNCC[C@H](Oc1cccc2ccccc12)c1cccs1\nTarget (ChEMBL): CHEMBL228\n\nIf you genuinely recall the specific reported value, state it in nM. If you do not, say exactly: NO RECALL.\nRespond with JSON: {\"value_nM\": <float or null>, \"recalled\": true|false}",
+ "raw": "The compound described is duloxetine (or its enantiomer), and the target CHEMBL228 is the serotonin transporter (SERT). CHEMBL2343889 is a known assay for this compound/target combination.\n\nI recall that the IC50 value reported in this assay for duloxetine against SERT is approximately 0.8 nM, but I am not confident enough in the exact value from this specific assay ID.\n\n{\"value_nM\": null, \"recalled\": false}",
+ "parsed": {
+  "value_nM": null,
+  "recalled": false
+ }
+}

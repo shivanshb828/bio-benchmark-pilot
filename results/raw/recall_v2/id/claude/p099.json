@@ -1,0 +1,12 @@
+{
+ "id": "p099",
+ "probe": "id",
+ "model": "claude-opus-4-6",
+ "prompt": "You are given the SMILES string of a chemical compound. If you recognize this compound and know a common name for it, return that name. If you do not recognize it or are uncertain, return null.\n\nCompound SMILES: Nc1c2c(nc3cc(Cl)ccc13)CCCC2\n\nRespond with exactly this JSON and nothing else:\n{\"name\": \"<common name, IUPAC name, or trade name \u2014 or null>\", \"recognized\": true|false, \"confidence\": <float 0-1>}",
+ "raw": "Based on the SMILES string `Nc1c2c(nc3cc(Cl)ccc13)CCCC2`, I can analyze the structure:\n\nThis appears to be a chloro-substituted aminoacridine derivative with a partially saturated ring. Specifically, this looks like **7-chloro-1,2,3,4-tetrahydroacridin-9-amine**, which is the drug **tacrine** analog known as **7-chlorotacrine** (or more precisely, it is a chlorinated derivative of tacrine).\n\nWait \u2014 let me reconsider. Tacrine itself is 1,2,3,4-tetrahydroacridin-9-amine. This compound has a chlorine substituent on the aromatic ring, making it **7-chlorotacrine**.\n\n{\"name\": \"7-chlorotacrine\", \"recognized\": true, \"confidence\": 0.85}",
+ "parsed": {
+  "name": "7-chlorotacrine",
+  "recognized": true,
+  "confidence": 0.85
+ }
+}

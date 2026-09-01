@@ -1,0 +1,40 @@
+[
+ {
+  "arm": "metadata_forced",
+  "model": "claude",
+  "n": 195,
+  "balanced_accuracy": 0.5607894736842105,
+  "ci": [
+   0.5060488112770882,
+   0.6126373626373627
+  ],
+  "balanced_accuracy_committed": 0.5607894736842105,
+  "ci_committed": [
+   0.5060488112770882,
+   0.6126373626373627
+  ],
+  "n_committed": 195,
+  "false_merge": 0.7684210526315789,
+  "false_split": 0.11,
+  "abstention": 0.0
+ },
+ {
+  "arm": "metadata_forced",
+  "model": "gpt",
+  "n": 195,
+  "balanced_accuracy": 0.5494736842105263,
+  "ci": [
+   0.5042780748663102,
+   0.5979715378079864
+  ],
+  "balanced_accuracy_committed": 0.5494736842105263,
+  "ci_committed": [
+   0.5042780748663102,
+   0.5979715378079864
+  ],
+  "n_committed": 195,
+  "false_merge": 0.8210526315789474,
+  "false_split": 0.08,
+  "abstention": 0.0
+ }
+]

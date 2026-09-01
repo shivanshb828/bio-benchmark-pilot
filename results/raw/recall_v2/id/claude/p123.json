@@ -1,0 +1,10 @@
+{
+ "id": "p123",
+ "probe": "id",
+ "model": "claude-opus-4-6",
+ "prompt": "You are given the SMILES string of a chemical compound. If you recognize this compound and know a common name for it, return that name. If you do not recognize it or are uncertain, return null.\n\nCompound SMILES: COc1cc2/c(=N/c3ccc(Br)cc3F)nc[nH]c2cc1OCC1CCN(C)CC1\n\nRespond with exactly this JSON and nothing else:\n{\"name\": \"<common name, IUPAC name, or trade name \u2014 or null>\", \"recognized\": true|false, \"confidence\": <float 0-1>}",
+ "raw": "{\"name\": \"vandetanib\", \"recognized\": true, \"confidence\": 0.85}\n\nWait, let me reconsider. Let me look at this structure more carefully.\n\nThe SMILES: COc1cc2/c(=N/c3ccc(Br)cc3F)nc[nH]c2cc1OCC1CCN(C)CC1\n\nThis has:\n- A quinazoline-like core with an NH (so it's a dihydroquinazoline or similar)\n- A methoxy group\n- An O-linked N-methylpiperidine\n- An imine (=N/) linked to a 4-bromo-2-fluorophenyl group\n\nVandetanib has a 4-bromo-2-fluoroaniline substituent and an N-methylpiperidine via oxygen linker, and methoxy on the quinazoline ring. Let me verify more carefully.\n\nVandetanib: N-(4-bromo-2-fluorophenyl)-6-methoxy-7-[(1-methylpiperidin-4-yl)methoxy]quinazolin-4-amine\n\nThe SMILES here shows `[nH]` which suggests a reduced nitrogen in the ring, but vandetanib has a fully aromatic quinazoline. However, the tautomeric/resonance form with =N exocyclic and [nH] could represent the same compound.\n\nActually, looking more carefully, this could be a tautomeric representation of vandetanib.\n\n{\"name\": \"vandetanib\", \"recognized\": true, \"confidence\": 0.82}",
+ "parsed": {
+  "_parse_error": "{\"name\": \"vandetanib\", \"recognized\": true, \"confidence\": 0.85}\n\nWait, let me reconsider. Let me look at this structure more carefully.\n\nThe SMILES: COc1cc2/c(=N/c3ccc(Br)cc3F)nc[nH]c2cc1OCC1CCN(C)CC1\n\nThis has:\n- A quinazoline-like core with an NH (so it's a dihydroquinazoline or similar)\n- A methoxy group\n- An O-linked N-methylpiperidine\n- An imine (=N/) linked to a 4-bromo-2-fluorophenyl group\n\n"
+ }
+}

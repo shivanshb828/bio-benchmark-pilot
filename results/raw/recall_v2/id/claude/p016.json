@@ -1,0 +1,10 @@
+{
+ "id": "p016",
+ "probe": "id",
+ "model": "claude-opus-4-6",
+ "prompt": "You are given the SMILES string of a chemical compound. If you recognize this compound and know a common name for it, return that name. If you do not recognize it or are uncertain, return null.\n\nCompound SMILES: O=c1[nH]c(CCCN2CC=C(c3ccc(F)cc3)CC2)nc2ccccc12\n\nRespond with exactly this JSON and nothing else:\n{\"name\": \"<common name, IUPAC name, or trade name \u2014 or null>\", \"recognized\": true|false, \"confidence\": <float 0-1>}",
+ "raw": "{\"name\": \"Ketanserin\", \"recognized\": true, \"confidence\": 0.85}\n\nWait, let me reconsider. Ketanserin has a different structure. Let me re-examine.\n\nKetanserin is: O=c1[nH]c(=O)c2ccc(F)cc2n1CC(=O)N1CCN(c2ccccc2)CC1 \u2014 no, that's not right either.\n\nLet me look at the SMILES more carefully: O=c1[nH]c(CCCN2CC=C(c3ccc(F)cc3)CC2)nc2ccccc12\n\nThis is a quinazolinone with a propyl chain linked to a 4-(4-fluorophenyl)-1,2,3,6-tetrahydropyridine piperidine. This looks like it could be related to haloperidol's pharmacophore but with a quinazolinone instead of butyrophenone.\n\nThis doesn't match a well-known drug I can confidently identify.\n\n{\"name\": null, \"recognized\": false, \"confidence\": 0.2}",
+ "parsed": {
+  "_parse_error": "{\"name\": \"Ketanserin\", \"recognized\": true, \"confidence\": 0.85}\n\nWait, let me reconsider. Ketanserin has a different structure. Let me re-examine.\n\nKetanserin is: O=c1[nH]c(=O)c2ccc(F)cc2n1CC(=O)N1CCN(c2ccccc2)CC1 \u2014 no, that's not right either.\n\nLet me look at the SMILES more carefully: O=c1[nH]c(CCCN2CC=C(c3ccc(F)cc3)CC2)nc2ccccc12\n\nThis is a quinazolinone with a propyl chain linked to a 4-(4-fluo"
+ }
+}

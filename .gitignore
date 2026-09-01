@@ -1,5 +1,4 @@
 __pycache__/
 *.pyc
 .env
-results/raw/
 data/assay_cache/

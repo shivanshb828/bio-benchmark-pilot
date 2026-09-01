@@ -1,0 +1,12 @@
+{
+ "id": "p152",
+ "probe": "id",
+ "model": "claude-opus-4-6",
+ "prompt": "You are given the SMILES string of a chemical compound. If you recognize this compound and know a common name for it, return that name. If you do not recognize it or are uncertain, return null.\n\nCompound SMILES: CCOc1ccccc1C[C@H](c1ccccc1)N1CCNCC1\n\nRespond with exactly this JSON and nothing else:\n{\"name\": \"<common name, IUPAC name, or trade name \u2014 or null>\", \"recognized\": true|false, \"confidence\": <float 0-1>}",
+ "raw": "Looking at the SMILES: CCOc1ccccc1C[C@H](c1ccccc1)N1CCNCC1\n\nLet me parse this structure:\n- An ethoxy group on a phenyl ring (ortho position)\n- A methylene bridge connecting to a chiral center\n- The chiral center bears a phenyl group and a piperazine ring\n\nThis structure matches **NAN-190**, a well-known serotonin 5-HT1A receptor antagonist used in pharmacological research.\n\nWait, let me reconsider. NAN-190 has a different structure (it contains an isoquinoline moiety). Let me re-examine.\n\nThis compound has:\n- 2-ethoxyphenyl-CH2-CH(phenyl)-piperazine\n\nThis looks like it could be a piperazine derivative related to some pharmacological tool compounds, but I'm not confident enough in a specific common name.\n\n{\"name\": null, \"recognized\": false, \"confidence\": 0.2}",
+ "parsed": {
+  "name": null,
+  "recognized": false,
+  "confidence": 0.2
+ }
+}

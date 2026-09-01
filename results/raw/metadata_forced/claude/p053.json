@@ -1,0 +1,13 @@
+{
+ "id": "p053",
+ "arm": "metadata_forced",
+ "model": "claude-opus-4-6",
+ "prompt": "A single compound was assayed by IC50 against a single protein target in two different assays, reported in the literature.\n\nCompound SMILES: Br.COc1ccc2c3c1O[C@H]1C[C@@H](O)C=C[C@@]31CCN(C)C2\nTarget (ChEMBL): CHEMBL4078\n\nAssay A:\n  Description: Inhibition of electric eel AChE after 15 mins by Ellman's method\n  Assay type: B\n  ChEMBL confidence score: 9\n  Organism: Electrophorus electricus\n\nAssay B:\n  Description: Inhibition of Electrophorus electricus (electric eel) AChE using acetylthiocholine iodide as substrate preincubated with enzyme for 15 min prior to substrate addition measured every 45 s by colorimetric Ellman's method\n  Assay type: B\n  ChEMBL confidence score: 9\n  Organism: Electrophorus electricus\n\nWill the two reported IC50 values agree closely (within 0.3 log units), or differ substantially (more than 1.0 log units)?\n\nRespond with exactly this JSON and nothing else:\n{\"call\": \"COMMENSURABLE\" | \"NOT_COMMENSURABLE\",\n \"confidence\": <float 0-1>,\n \"error_class\": \"assay_method\" | \"buffer_conditions\" | \"construct_mutant\" | \"organism\" | \"readout_type\" | \"potency_range\" | \"none\" | \"other\",\n \"reason\": \"<one sentence>\"}\n\n\"COMMENSURABLE\" means you expect the two reported values to agree closely.\n\"NOT_COMMENSURABLE\" means you expect them to differ substantially.\nerror_class is your primary reason for a NOT_COMMENSURABLE call, else \"none\".\nINSUFFICIENT_INFO is not a valid response. You must commit to COMMENSURABLE or NOT_COMMENSURABLE.\nIf you lack direct evidence, make your best guess based on compound structure and target identity.",
+ "raw": "{\"call\": \"COMMENSURABLE\", \"confidence\": 0.93, \"error_class\": \"none\", \"reason\": \"Both assays measure IC50 of the same compound against electric eel AChE using the same Ellman's colorimetric method with the same 15-minute preincubation time, same organism, and same confidence score, so results should be highly comparable.\"}",
+ "parsed": {
+  "call": "COMMENSURABLE",
+  "confidence": 0.93,
+  "error_class": "none",
+  "reason": "Both assays measure IC50 of the same compound against electric eel AChE using the same Ellman's colorimetric method with the same 15-minute preincubation time, same organism, and same confidence score, so results should be highly comparable."
+ }
+}

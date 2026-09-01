@@ -1,0 +1,12 @@
+{
+ "id": "p083",
+ "probe": "id",
+ "model": "claude-opus-4-6",
+ "prompt": "You are given the SMILES string of a chemical compound. If you recognize this compound and know a common name for it, return that name. If you do not recognize it or are uncertain, return null.\n\nCompound SMILES: CN1CCc2c(n(CCCCCCCCCn3c4c(c5ccccc53)CCN(C)C4)c3ccccc23)C1\n\nRespond with exactly this JSON and nothing else:\n{\"name\": \"<common name, IUPAC name, or trade name \u2014 or null>\", \"recognized\": true|false, \"confidence\": <float 0-1>}",
+ "raw": "Looking at this SMILES structure, I can see two identical indole-based ring systems (specifically, they appear to be 1,2,3,4-tetrahydro-9H-pyrido[3,4-b]indole or tetrahydro-\u03b2-carboline units) connected by a nine-carbon alkyl chain. Each unit has an N-methyl group on the piperidine nitrogen.\n\nThis appears to be a bis-tetrahydro-\u03b2-carboline compound linked by a nonane chain. Let me check if this is a known compound.\n\nThe substructure on each end resembles meleagrine or more precisely resembles the core of compounds related to tryptoline/tetrahydroharmine derivatives. The specific bis-linked structure with a C9 chain connecting two N-methyl-tetrahydro-\u03b2-carboline units doesn't correspond to a widely known common name that I can confidently identify.\n\n{\"name\": null, \"recognized\": false, \"confidence\": 0.2}",
+ "parsed": {
+  "name": null,
+  "recognized": false,
+  "confidence": 0.2
+ }
+}

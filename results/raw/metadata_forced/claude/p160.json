@@ -1,0 +1,13 @@
+{
+ "id": "p160",
+ "arm": "metadata_forced",
+ "model": "claude-opus-4-6",
+ "prompt": "A single compound was assayed by IC50 against a single protein target in two different assays, reported in the literature.\n\nCompound SMILES: C#CCN[C@@H]1CCc2ccccc21\nTarget (ChEMBL): CHEMBL2039\n\nAssay A:\n  Description: Inhibition of human recombinant microsomal MAOB expressed in baculovirus infected BTI-TN-5B1- 4 cells using p-tyramine as substrate assessed as decrease in H2O2 production after 15 mins by amplex red-based fluorescence assay\n  Assay type: B\n  ChEMBL confidence score: 9\n  Organism: Homo sapiens\n\nAssay B:\n  Description: Inhibition of recombinant human MAO-B expressed in baculovirus infected BTI insect cells using kynuramine as substrate after 30 mins by fluorescence based assay\n  Assay type: B\n  ChEMBL confidence score: 9\n  Organism: Homo sapiens\n\nWill the two reported IC50 values agree closely (within 0.3 log units), or differ substantially (more than 1.0 log units)?\n\nRespond with exactly this JSON and nothing else:\n{\"call\": \"COMMENSURABLE\" | \"NOT_COMMENSURABLE\",\n \"confidence\": <float 0-1>,\n \"error_class\": \"assay_method\" | \"buffer_conditions\" | \"construct_mutant\" | \"organism\" | \"readout_type\" | \"potency_range\" | \"none\" | \"other\",\n \"reason\": \"<one sentence>\"}\n\n\"COMMENSURABLE\" means you expect the two reported values to agree closely.\n\"NOT_COMMENSURABLE\" means you expect them to differ substantially.\nerror_class is your primary reason for a NOT_COMMENSURABLE call, else \"none\".\nINSUFFICIENT_INFO is not a valid response. You must commit to COMMENSURABLE or NOT_COMMENSURABLE.\nIf you lack direct evidence, make your best guess based on compound structure and target identity.",
+ "raw": "{\"call\": \"NOT_COMMENSURABLE\", \"confidence\": 0.6, \"error_class\": \"assay_method\", \"reason\": \"Different substrates (p-tyramine vs kynuramine) and different incubation times (15 min vs 30 min) can lead to substantially different IC50 values, especially for mechanism-based irreversible inhibitors like propargylamine-containing MAO-B inhibitors where time-dependent inactivation significantly affects apparent potency.\"}",
+ "parsed": {
+  "call": "NOT_COMMENSURABLE",
+  "confidence": 0.6,
+  "error_class": "assay_method",
+  "reason": "Different substrates (p-tyramine vs kynuramine) and different incubation times (15 min vs 30 min) can lead to substantially different IC50 values, especially for mechanism-based irreversible inhibitors like propargylamine-containing MAO-B inhibitors where time-dependent inactivation significantly affects apparent potency."
+ }
+}

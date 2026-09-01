@@ -1,0 +1,10 @@
+{
+ "id": "p037",
+ "probe": "id",
+ "model": "claude-opus-4-6",
+ "prompt": "You are given the SMILES string of a chemical compound. If you recognize this compound and know a common name for it, return that name. If you do not recognize it or are uncertain, return null.\n\nCompound SMILES: CN1C(=O)C(c2ccccc2)(c2ccccc2)N=C1N\n\nRespond with exactly this JSON and nothing else:\n{\"name\": \"<common name, IUPAC name, or trade name \u2014 or null>\", \"recognized\": true|false, \"confidence\": <float 0-1>}",
+ "raw": "{\"name\": \"aminophenazone\", \"recognized\": true, \"confidence\": 0.45}\n\nWait, let me reconsider. Let me analyze the SMILES more carefully.\n\nCN1C(=O)C(c2ccccc2)(c2ccccc2)N=C1N\n\nThis is a 5-membered ring (imidazoline/imidazolinone):\n- N1 with methyl\n- C(=O)\n- C with two phenyl groups\n- N= (imine)\n- C1 with NH2\n\nThis doesn't match aminophenazone. Let me reconsider.\n\nThis structure is a 2-amino-1-methyl-5,5-diphenyl-4-imidazolidinone or similar. This could be related to phenytoin derivatives but with an amino and methyl group.\n\n{\"name\": null, \"recognized\": false, \"confidence\": 0.2}",
+ "parsed": {
+  "_parse_error": "{\"name\": \"aminophenazone\", \"recognized\": true, \"confidence\": 0.45}\n\nWait, let me reconsider. Let me analyze the SMILES more carefully.\n\nCN1C(=O)C(c2ccccc2)(c2ccccc2)N=C1N\n\nThis is a 5-membered ring (imidazoline/imidazolinone):\n- N1 with methyl\n- C(=O)\n- C with two phenyl groups\n- N= (imine)\n- C1 with NH2\n\nThis doesn't match aminophenazone. Let me reconsider.\n\nThis structure is a 2-amino-1-methyl-5"
+ }
+}

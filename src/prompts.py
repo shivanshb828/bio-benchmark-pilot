@@ -105,6 +105,42 @@ Will the two reported IC50 values agree closely (within 0.3 log units), or diffe
 {SCHEMA}"""
 
 
+def metadata_prompt_forced(item, meta):
+    """Arm B (forced-choice): full assay descriptions, INSUFFICIENT_INFO forbidden.
+
+    Identical body to metadata_prompt but uses SCHEMA_FORCED so the arm is
+    directly comparable to control_forced (same schema, same denominator).
+    """
+    a, b = meta.get(item["assay_a"], {}), meta.get(item["assay_b"], {})
+
+    def block(m, tag):
+        fields = [
+            ("Description", m.get("description")),
+            ("Assay type", m.get("assay_type")),
+            ("Category", m.get("assay_category")),
+            ("ChEMBL confidence score", m.get("confidence_score")),
+            ("Organism", m.get("assay_organism")),
+            ("Cell type", m.get("assay_cell_type")),
+            ("Tissue", m.get("assay_tissue")),
+            ("Test type", m.get("assay_test_type")),
+        ]
+        body = "\n".join(f"  {k}: {v}" for k, v in fields if v not in (None, "", "None"))
+        return f"Assay {tag}:\n{body}"
+
+    return f"""A single compound was assayed by IC50 against a single protein target in two different assays, reported in the literature.
+
+Compound SMILES: {item['smiles']}
+Target (ChEMBL): {item['target']}
+
+{block(a, 'A')}
+
+{block(b, 'B')}
+
+Will the two reported IC50 values agree closely (within 0.3 log units), or differ substantially (more than 1.0 log units)?
+
+{SCHEMA_FORCED}"""
+
+
 def recall_prompt(item):
     """Contamination check v1 (deprecated): keyed on assay_chembl_id.
 
